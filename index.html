@@ -1,0 +1,3272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دليلي | منصة خدمة العملاء والتجارة الإلكترونية المتكاملة</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif'],
+            en: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            dalilyDark: {
+              bg: '#121A14',
+              surface: '#1E2B22',
+              elevated: '#26362B',
+              border: '#2F4235',
+              mint: '#82E0A6',
+              mintText: '#0E1711',
+              gold: '#F2A93B',
+              text: '#F1F5F2',
+              muted: '#9CAFA2',
+            },
+            dalilyLight: {
+              bg: '#FAF8F5',
+              surface: '#FFFFFF',
+              elevated: '#F3EFEA',
+              border: '#E5E0D8',
+              emerald: '#059669',
+              amber: '#D97706',
+              text: '#1C1917',
+              muted: '#57534E',
+            }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.25s ease-out forwards',
+            'slide-up': 'slideUp 0.28s ease-out forwards',
+            'compass-float': 'compassFloat 3.6s infinite ease-in-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            compassFloat: {
+              '0%, 100%': { transform: 'translateY(0px) scale(1)' },
+              '50%': { transform: 'translateY(-4px) scale(1.02)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(130, 224, 166, 0.28);
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(130, 224, 166, 0.5);
+    }
+    .typing-dot {
+      animation: typingBounce 1.4s infinite ease-in-out both;
+    }
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+    @keyframes typingBounce {
+      0%, 80%, 100% { transform: scale(0.5); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    .voice-bar {
+      animation: voiceWave 0.75s infinite ease-in-out alternate;
+    }
+    .voice-bar:nth-child(2) { animation-delay: 0.12s; }
+    .voice-bar:nth-child(3) { animation-delay: 0.26s; }
+    .voice-bar:nth-child(4) { animation-delay: 0.08s; }
+    .voice-bar:nth-child(5) { animation-delay: 0.22s; }
+    @keyframes voiceWave {
+      0% { height: 6px; }
+      100% { height: 20px; }
+    }
+  </style>
+</head>
+<body class="bg-[#FAF8F5] dark:bg-[#121A14] text-[#1C1917] dark:text-[#F1F5F2] min-h-screen flex flex-col transition-colors duration-300 selection:bg-[#82E0A6] selection:text-[#0E1711]">
+
+  <!-- Non-Intrusive Toast Notification Banner -->
+  <div id="toast-banner" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 hidden animate-slide-up pointer-events-none">
+    <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-[#1E2B22] text-[#F1F5F2] text-xs font-bold shadow-2xl border border-[#82E0A6]/50 whitespace-nowrap">
+      <span class="w-2 h-2 rounded-full bg-[#82E0A6] animate-ping"></span>
+      <span id="toast-message">تم التحديث بنجاح</span>
+    </div>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- ROLE 1: CUSTOMER FULL-WIDESCREEN LAPTOP EXPERIENCE (100vw x 100vh)      -->
+  <!-- ======================================================================= -->
+  <main id="role-view-customer" class="role-view flex-1 w-full min-h-screen bg-[#FAF8F5] dark:bg-[#121A14] text-[#1C1917] dark:text-[#F1F5F2] flex flex-col">
+
+    <!-- ===================================================================== -->
+    <!-- A. WELCOME + LOGIN / REGISTER (12-COLUMN WIDESCREEN LAPTOP SPLIT)     -->
+    <!-- ===================================================================== -->
+    <div id="customer-auth-view" class="min-h-screen w-full grid grid-cols-1 lg:grid-cols-12 animate-fade-in">
+
+      <!-- Right 7 Columns: Hero Showcase with Bespoke Dalily Compass Emblem -->
+      <section class="lg:col-span-7 relative overflow-hidden bg-gradient-to-br from-[#F3EFEA] via-[#FAF8F5] to-[#E6F4EE] dark:from-[#0E1510] dark:via-[#121A14] dark:to-[#18261D] border-b lg:border-b-0 lg:border-l border-[#E5E0D8] dark:border-[#2F4235] p-8 sm:p-12 xl:p-16 flex flex-col justify-between">
+        <!-- Ambient Radial Glows -->
+        <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#059669]/12 dark:bg-[#82E0A6]/12 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[#D97706]/12 dark:bg-[#F2A93B]/12 blur-3xl"></div>
+
+        <!-- Top Bar: Platform Badge & Dark/Light Mode Toggle Pill -->
+        <div class="relative z-10 flex items-center justify-between gap-3">
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/85 dark:bg-[#1E2B22]/90 border border-[#E5E0D8] dark:border-[#2F4235] backdrop-blur-xs">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#059669] dark:bg-[#82E0A6] animate-pulse"></span>
+            <span class="text-xs font-extrabold tracking-wide text-[#1C1917] dark:text-[#F1F5F2]">منصة الذكاء الاصطناعي لخدمة العملاء</span>
+          </div>
+
+          <button type="button" onclick="toggleAppTheme()" aria-label="تبديل المظهر"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] text-xs font-extrabold shadow-2xs hover:border-[#82E0A6] transition-colors">
+            <span class="dark:hidden">🌙 الوضع الليلي</span>
+            <span class="hidden dark:inline text-[#82E0A6]">☀️ الوضع النهاري</span>
+          </button>
+        </div>
+
+        <!-- Center Showcase: Large Dalily Compass SVG Emblem (120x120px) + Clean "دليلي" Heading -->
+        <div class="relative z-10 my-10 lg:my-auto max-w-2xl space-y-7">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+            <!-- Hero Dalily Compass Emblem (120x120px with subtle glow) -->
+            <div class="relative w-[120px] h-[120px] shrink-0 flex items-center justify-center animate-compass-float">
+              <div class="absolute inset-1 rounded-full bg-[#059669]/20 dark:bg-[#82E0A6]/20 blur-xl"></div>
+              <svg class="relative w-[120px] h-[120px]" viewBox="0 0 100 100" fill="none" aria-label="شعار بوصلة دليلي">
+                <!-- Outer Circular Bezel -->
+                <circle cx="50" cy="50" r="45" class="fill-white/90 dark:fill-[#1E2B22] stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="2.5"/>
+                <!-- Cardinal Degree Tick Marks (N / E / S / W + Diagonal Ticks) -->
+                <line x1="50" y1="8" x2="50" y2="14" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="2.4" stroke-linecap="round"/>
+                <line x1="50" y1="86" x2="50" y2="92" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="2.4" stroke-linecap="round"/>
+                <line x1="8" y1="50" x2="14" y2="50" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="2.4" stroke-linecap="round"/>
+                <line x1="86" y1="50" x2="92" y2="50" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="2.4" stroke-linecap="round"/>
+                <line x1="20.3" y1="20.3" x2="24.2" y2="24.2" class="stroke-[#57534E]/50 dark:stroke-[#9CAFA2]/50" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="75.8" y1="24.2" x2="79.7" y2="20.3" class="stroke-[#57534E]/50 dark:stroke-[#9CAFA2]/50" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="20.3" y1="79.7" x2="24.2" y2="75.8" class="stroke-[#57534E]/50 dark:stroke-[#9CAFA2]/50" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="75.8" y1="75.8" x2="79.7" y2="79.7" class="stroke-[#57534E]/50 dark:stroke-[#9CAFA2]/50" stroke-width="1.6" stroke-linecap="round"/>
+                <!-- Inner Concentric Ring -->
+                <circle cx="50" cy="50" r="32" class="stroke-[#E5E0D8] dark:stroke-[#2F4235]" stroke-width="1.6" stroke-dasharray="3 2"/>
+                <!-- Two-Tone Geometric Compass Needle Tilted at 45 Degrees -->
+                <g transform="rotate(45 50 50)">
+                  <!-- Upper-Right Pointer in Warm Amber Gold -->
+                  <polygon points="50,14 58.5,50 41.5,50" class="fill-[#D97706] dark:fill-[#F2A93B]"/>
+                  <!-- Lower-Left Pointer in Vibrant Mint Green -->
+                  <polygon points="50,86 58.5,50 41.5,50" class="fill-[#059669] dark:fill-[#82E0A6]"/>
+                </g>
+                <!-- Crisp Central Pivot Circle -->
+                <circle cx="50" cy="50" r="6" class="fill-white dark:fill-[#121A14] stroke-[#1C1917] dark:stroke-[#F1F5F2]" stroke-width="2"/>
+                <circle cx="50" cy="50" r="2.2" class="fill-[#D97706] dark:fill-[#F2A93B]"/>
+              </svg>
+            </div>
+
+            <div class="space-y-2">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D97706]/15 dark:bg-[#F2A93B]/15 text-[#D97706] dark:text-[#F2A93B] text-[11px] font-extrabold">
+                <span>AI Wayfinder &amp; Support Suite</span>
+                <span>•</span>
+                <span>24/7</span>
+              </div>
+              <h1 class="text-4xl sm:text-5xl xl:text-6xl font-black tracking-tight text-[#1C1917] dark:text-[#F1F5F2]">دليلي</h1>
+            </div>
+          </div>
+
+          <p class="text-lg sm:text-xl xl:text-2xl text-[#57534E] dark:text-[#9CAFA2] leading-relaxed font-semibold">
+            منصتك الذكية لخدمة العملاء وتجربة التسوق المتكاملة
+          </p>
+
+          <!-- 3 Horizontal Feature Highlights -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-white/90 dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2 shadow-2xs">
+              <div class="w-9 h-9 rounded-xl bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] flex items-center justify-center text-base font-extrabold">AI</div>
+              <h3 class="font-extrabold text-xs sm:text-sm text-[#1C1917] dark:text-[#F1F5F2]">مساعد ذكي يفهم اللهجة العربية</h3>
+              <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2] leading-relaxed">تحليل فوري للنية والمشاعر والرد الدقيق من قاعدة المعرفة.</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/90 dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2 shadow-2xs">
+              <div class="w-9 h-9 rounded-xl bg-[#D97706]/15 dark:bg-[#F2A93B]/15 text-[#D97706] dark:text-[#F2A93B] flex items-center justify-center text-base font-extrabold">📦</div>
+              <h3 class="font-extrabold text-xs sm:text-sm text-[#1C1917] dark:text-[#F1F5F2]">تتبع فوري للطلبات والشحنات</h3>
+              <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2] leading-relaxed">مراقبة خط سير شحنتك وبيانات المندوب لحظة بلحظة.</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/90 dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2 shadow-2xs">
+              <div class="w-9 h-9 rounded-xl bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] flex items-center justify-center text-base font-extrabold">🎧</div>
+              <h3 class="font-extrabold text-xs sm:text-sm text-[#1C1917] dark:text-[#F1F5F2]">تصعيد سلس لموظف خدمة العملاء</h3>
+              <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2] leading-relaxed">نقل كامل سياق المحادثة تلقائياً لضمان حل مشكلتك في أسرع وقت.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Showcase Strip -->
+        <div class="relative z-10 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#E5E0D8] dark:border-[#2F4235] text-xs text-[#57534E] dark:text-[#9CAFA2]">
+          <span>تجربة متكاملة للعميل وموظف الدعم ولوحة الإدارة</span>
+          <span class="font-en font-semibold">Dalily Omnichannel Platform</span>
+        </div>
+      </section>
+
+      <!-- Left 5 Columns: Authentication Card + Quick Role Portal -->
+      <section class="lg:col-span-5 flex items-center justify-center p-6 sm:p-10 xl:p-14 bg-[#FAF8F5] dark:bg-[#121A14]">
+        <div class="w-full max-w-md bg-white dark:bg-[#1E2B22] rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] p-6 sm:p-8 shadow-xl space-y-5">
+
+          <!-- Tabbed Login / Register Toggle -->
+          <div class="grid grid-cols-2 gap-1.5 p-1 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs font-extrabold">
+            <button type="button" id="c-auth-tab-login" onclick="toggleCustAuthMode('login')" class="py-2.5 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] transition-colors">
+              تسجيل الدخول
+            </button>
+            <button type="button" id="c-auth-tab-reg" onclick="toggleCustAuthMode('register')" class="py-2.5 rounded-xl text-[#57534E] dark:text-[#9CAFA2] transition-colors">
+              حساب جديد
+            </button>
+          </div>
+
+          <div>
+            <h2 id="c-auth-title" class="text-2xl font-extrabold text-[#1C1917] dark:text-[#F1F5F2]">أهلاً بك في دليلي</h2>
+            <p class="text-xs text-[#57534E] dark:text-[#9CAFA2] mt-1">سجّل دخولك لبدء المحادثة ومتابعة طلباتك وتذاكر الدعم</p>
+          </div>
+
+          <!-- Credentials Form -->
+          <div class="space-y-3.5">
+            <div id="c-reg-name-wrap" class="hidden">
+              <label class="block text-xs font-bold mb-1.5">الاسم بالكامل</label>
+              <input id="c-reg-name" type="text" value="سلمى محمود" placeholder="أدخل اسمك الكامل"
+                class="w-full px-4 py-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs focus:outline-none focus:border-[#82E0A6]" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold mb-1.5">رقم الموبايل أو البريد الإلكتروني</label>
+              <input id="c-login-identifier" type="text" value="01012345678" placeholder="010xxxxxxxx أو name@email.com"
+                class="w-full px-4 py-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs font-en focus:outline-none focus:border-[#82E0A6]" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <button type="button" onclick="sendDemoOtp()"
+                class="py-3.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-extrabold text-xs transition-colors">
+                إرسال رمز OTP
+              </button>
+              <button type="button" onclick="completeCustomerLogin(false)"
+                class="py-3.5 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] hover:opacity-95 text-white dark:text-[#0E1711] font-extrabold text-xs shadow-md active:scale-[0.99] transition-all">
+                ابدأ الآن / دخول ←
+              </button>
+            </div>
+          </div>
+
+          <!-- Simulated OTP Verification Code 4829 -->
+          <div id="c-auth-step-otp" class="space-y-3 p-4 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#059669]/35 dark:border-[#82E0A6]/35">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-extrabold">رمز التحقق السريع (OTP)</span>
+              <span class="text-[11px] text-[#059669] dark:text-[#82E0A6] font-bold">مُفعّل: 4829 ✓</span>
+            </div>
+            <div dir="ltr" class="grid grid-cols-4 gap-2.5">
+              <input maxlength="1" value="4" class="h-11 text-center font-en font-extrabold text-lg rounded-xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] focus:border-[#82E0A6] focus:outline-none" />
+              <input maxlength="1" value="8" class="h-11 text-center font-en font-extrabold text-lg rounded-xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] focus:border-[#82E0A6] focus:outline-none" />
+              <input maxlength="1" value="2" class="h-11 text-center font-en font-extrabold text-lg rounded-xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] focus:border-[#82E0A6] focus:outline-none" />
+              <input maxlength="1" value="9" class="h-11 text-center font-en font-extrabold text-lg rounded-xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] focus:border-[#82E0A6] focus:outline-none" />
+            </div>
+          </div>
+
+          <!-- Continue as Guest -->
+          <button type="button" onclick="completeCustomerLogin(true)"
+            class="w-full py-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] text-xs font-extrabold transition-colors">
+            دخول كضيف
+          </button>
+
+          <!-- Quick Role Portal (3 One-Click Cards) -->
+          <div class="pt-4 border-t border-[#E5E0D8] dark:border-[#2F4235] space-y-2.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-extrabold text-[#57534E] dark:text-[#9CAFA2]">بوابة الدخول السريع للأدوار</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#D97706]/15 dark:bg-[#F2A93B]/15 text-[#D97706] dark:text-[#F2A93B] font-bold">3 أدوار متزامنة</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" onclick="quickDemoLogin('customer')"
+                class="p-2.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] text-center space-y-1 transition-all">
+                <span class="block text-base">👤</span>
+                <span class="block text-[11px] font-extrabold leading-tight">دخول كعميل</span>
+                <span class="block text-[9px] text-[#57534E] dark:text-[#9CAFA2]">(سلمى محمود)</span>
+              </button>
+              <button type="button" onclick="quickDemoLogin('agent')"
+                class="p-2.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] text-center space-y-1 transition-all">
+                <span class="block text-base">🎧</span>
+                <span class="block text-[11px] font-extrabold leading-tight">دخول كموظف دعم</span>
+                <span class="block text-[9px] text-[#57534E] dark:text-[#9CAFA2]">(أحمد كمال)</span>
+              </button>
+              <button type="button" onclick="quickDemoLogin('admin')"
+                class="p-2.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] text-center space-y-1 transition-all">
+                <span class="block text-base">🛠️</span>
+                <span class="block text-[11px] font-extrabold leading-tight">دخول كأدمن</span>
+                <span class="block text-[9px] text-[#57534E] dark:text-[#9CAFA2]">(مدير النظام)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- B. LOGGED-IN CUSTOMER WIDESCREEN LAPTOP SHELL (100vw x 100vh)         -->
+    <!-- ===================================================================== -->
+    <div id="customer-app-shell" class="hidden h-screen w-full flex overflow-hidden relative">
+
+      <!-- Mobile/Compact Backdrop -->
+      <div id="mobile-drawer-backdrop" onclick="toggleMobileDrawer(false)" class="hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-[2px] lg:hidden"></div>
+
+      <!-- Persistent Right Sidebar (w-72) -->
+      <aside id="mobile-drawer" class="hidden lg:flex fixed lg:static top-0 right-0 bottom-0 z-50 w-72 shrink-0 bg-white dark:bg-[#1E2B22] border-l border-[#E5E0D8] dark:border-[#2F4235] p-4 flex-col justify-between overflow-y-auto custom-scroll">
+        <div class="space-y-4">
+          <!-- Dalily Compass SVG (38x38px inside rounded badge) + Clean "دليلي" -->
+          <div class="flex items-center justify-between pb-3.5 border-b border-[#E5E0D8] dark:border-[#2F4235]">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] flex items-center justify-center shadow-xs shrink-0">
+                <svg class="w-[38px] h-[38px]" viewBox="0 0 100 100" fill="none" aria-label="شعار دليلي">
+                  <circle cx="50" cy="50" r="44" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3"/>
+                  <line x1="50" y1="9" x2="50" y2="16" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="50" y1="84" x2="50" y2="91" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="9" y1="50" x2="16" y2="50" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="84" y1="50" x2="91" y2="50" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="50" cy="50" r="31" class="stroke-[#E5E0D8] dark:stroke-[#2F4235]" stroke-width="2"/>
+                  <g transform="rotate(45 50 50)">
+                    <polygon points="50,15 59,50 41,50" class="fill-[#D97706] dark:fill-[#F2A93B]"/>
+                    <polygon points="50,85 59,50 41,50" class="fill-[#059669] dark:fill-[#82E0A6]"/>
+                  </g>
+                  <circle cx="50" cy="50" r="6" class="fill-white dark:fill-[#121A14] stroke-[#1C1917] dark:stroke-[#F1F5F2]" stroke-width="2.2"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="font-black text-lg leading-tight text-[#1C1917] dark:text-[#F1F5F2]">دليلي</h2>
+                <p class="text-[11px] text-[#059669] dark:text-[#82E0A6] font-bold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#059669] dark:bg-[#82E0A6] animate-pulse"></span>
+                  متصل الآن
+                </p>
+              </div>
+            </div>
+            <button type="button" onclick="toggleMobileDrawer(false)" aria-label="إغلاق القائمة" class="lg:hidden p-2 rounded-xl hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] text-xs font-bold">✕</button>
+          </div>
+
+          <!-- User Profile Badge -->
+          <div class="p-3.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2">
+            <div class="flex items-center gap-2.5">
+              <div id="sidebar-user-avatar" class="w-10 h-10 rounded-xl bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] font-extrabold text-sm flex items-center justify-center shrink-0">
+                س
+              </div>
+              <div class="min-w-0">
+                <p id="drawer-user-name" class="font-extrabold text-xs truncate">سلمى محمود</p>
+                <p id="drawer-user-sub" class="text-[11px] text-[#57534E] dark:text-[#9CAFA2] font-en truncate">01012345678</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1.5 border-t border-[#E5E0D8] dark:border-[#2F4235] text-[10px]">
+              <span id="sidebar-user-tier" class="px-2 py-0.5 rounded-full bg-[#D97706]/15 dark:bg-[#F2A93B]/15 text-[#D97706] dark:text-[#F2A93B] font-extrabold">عضو ذهبي</span>
+              <span class="text-[#57534E] dark:text-[#9CAFA2]">الطلبات: <strong id="sidebar-orders-count" class="font-en text-[#1C1917] dark:text-[#F1F5F2]">2</strong></span>
+            </div>
+          </div>
+
+          <!-- Vertical Navigation Menu for All Customer Screens -->
+          <nav class="space-y-1 text-xs font-bold">
+            <button type="button" onclick="drawerNavigate('home')" data-cnav="home"
+              class="cnav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold transition-colors">
+              <span class="flex items-center gap-2.5"><span>💬</span><span>المحادثة الذكية</span></span>
+              <span class="w-2 h-2 rounded-full bg-white dark:bg-[#0E1711]"></span>
+            </button>
+
+            <button type="button" onclick="drawerNavigate('track')" data-cnav="track"
+              class="cnav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] transition-colors">
+              <span class="flex items-center gap-2.5"><span>📦</span><span>تتبع طلبي</span></span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#D97706]/15 dark:bg-[#F2A93B]/20 text-[#D97706] dark:text-[#F2A93B] font-en">2</span>
+            </button>
+
+            <button type="button" onclick="drawerNavigate('complaint')" data-cnav="complaint"
+              class="cnav-btn w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] transition-colors">
+              <span>📝</span><span>تقديم شكوى</span>
+            </button>
+
+            <button type="button" onclick="drawerNavigate('tickets')" data-cnav="tickets"
+              class="cnav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] transition-colors">
+              <span class="flex items-center gap-2.5"><span>🎫</span><span>تذاكري</span></span>
+              <span id="drawer-tickets-badge" class="text-[10px] px-2 py-0.5 rounded-full bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] font-en">2</span>
+            </button>
+
+            <button type="button" onclick="drawerNavigate('ticket-details')" data-cnav="ticket-details"
+              class="cnav-btn w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] transition-colors">
+              <span>🎧</span><span>تفاصيل التذكرة</span>
+            </button>
+
+            <button type="button" onclick="drawerNavigate('history')" data-cnav="history"
+              class="cnav-btn w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] transition-colors">
+              <span>🕘</span><span>سجل المحادثات</span>
+            </button>
+
+            <button type="button" onclick="drawerNavigate('rate')" data-cnav="rate"
+              class="cnav-btn w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] transition-colors">
+              <span>⭐</span><span>تقييم الخدمة</span>
+            </button>
+
+            <button type="button" onclick="drawerNavigate('notifications')" data-cnav="notifications"
+              class="cnav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] transition-colors">
+              <span class="flex items-center gap-2.5"><span>🔔</span><span>الإشعارات</span></span>
+              <span id="drawer-notifs-badge" class="text-[10px] px-2 py-0.5 rounded-full bg-rose-500 text-white font-en">2</span>
+            </button>
+
+            <button type="button" onclick="drawerNavigate('profile')" data-cnav="profile"
+              class="cnav-btn w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] transition-colors">
+              <span>⚙️</span><span>الإعدادات والملف الشخصي</span>
+            </button>
+          </nav>
+        </div>
+
+        <!-- Bottom Controls: Quick Role Switch, Dark/Light Theme Toggle & Logout -->
+        <div class="pt-3 mt-3 border-t border-[#E5E0D8] dark:border-[#2F4235] space-y-2 text-xs">
+          <div class="grid grid-cols-2 gap-1.5">
+            <button type="button" onclick="quickDemoLogin('agent')" class="py-2 px-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-bold text-[11px]">
+              لوحة الموظف
+            </button>
+            <button type="button" onclick="quickDemoLogin('admin')" class="py-2 px-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-bold text-[11px]">
+              لوحة الأدمن
+            </button>
+          </div>
+          <button type="button" onclick="toggleAppTheme()" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">
+            <span>مظهر الواجهة</span>
+            <span class="dark:hidden text-[#059669]">🌙 ليلي</span>
+            <span class="hidden dark:inline text-[#82E0A6]">☀️ نهاري</span>
+          </button>
+          <button type="button" onclick="logoutToLoginScreen()" class="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-500 font-extrabold transition-colors">
+            <span>تسجيل الخروج</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Widescreen Content Area -->
+      <div class="flex-1 flex flex-col h-full overflow-hidden bg-[#FAF8F5] dark:bg-[#121A14]">
+
+        <!-- Top Contextual Header Bar -->
+        <header class="px-5 sm:px-7 py-3.5 bg-white/95 dark:bg-[#1E2B22]/95 backdrop-blur-md border-b border-[#E5E0D8] dark:border-[#2F4235] flex items-center justify-between gap-3 shrink-0">
+          <div class="flex items-center gap-3">
+            <button type="button" onclick="toggleMobileDrawer(true)" aria-label="فتح القائمة"
+              class="lg:hidden p-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235]">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h11"/>
+              </svg>
+            </button>
+
+            <div>
+              <h1 id="cust-topbar-title" class="font-extrabold text-base sm:text-lg leading-tight text-[#1C1917] dark:text-[#F1F5F2]">المحادثة الذكية — دليلي</h1>
+              <p class="text-[11px] text-[#059669] dark:text-[#82E0A6] font-bold flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#059669] dark:bg-[#82E0A6] animate-pulse"></span>
+                <span>متصل الآن • يرد خلال ثوانٍ</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs">
+            <button type="button" onclick="goCustomerScreen('history')"
+              class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] hover:border-[#82E0A6] font-bold transition-colors">
+              <span>سجل المحادثات</span>
+            </button>
+            <button type="button" onclick="exportChatTranscript()"
+              class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] hover:border-[#82E0A6] font-bold transition-colors">
+              <span>تصدير JSON</span>
+            </button>
+            <button type="button" onclick="goCustomerScreen('notifications')" aria-label="الإشعارات"
+              class="relative p-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] hover:border-[#82E0A6] text-sm">
+              🔔
+              <span id="mobile-bell-badge" class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-[#D97706] dark:bg-[#F2A93B] text-white dark:text-[#0E1711] font-en font-extrabold text-[10px] flex items-center justify-center">2</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- ================================================================= -->
+        <!-- SCREEN 1: HOME / MAIN AI CHAT (2-PANE WIDESCREEN)                 -->
+        <!-- ================================================================= -->
+        <div id="cscreen-home" class="cscreen-view flex-1 flex overflow-hidden animate-fade-in">
+
+          <!-- Main Chat Area -->
+          <div class="flex-1 flex flex-col h-full overflow-hidden">
+
+            <!-- Generous Message Feed -->
+            <div class="flex-1 overflow-y-auto custom-scroll px-4 sm:px-8 py-6">
+              <div id="cust-chat-feed" class="max-w-4xl mx-auto w-full space-y-4">
+                <!-- Populated dynamically with Dalily Compass Bot Avatars -->
+              </div>
+            </div>
+
+            <!-- Bottom Input & Quick Reply Chips -->
+            <div class="shrink-0 bg-white/95 dark:bg-[#1E2B22]/95 backdrop-blur-md border-t border-[#E5E0D8] dark:border-[#2F4235] px-4 sm:px-8 py-3.5">
+              <div class="max-w-4xl mx-auto w-full space-y-2.5">
+
+                <!-- Live Voice Recording Overlay Bar -->
+                <div id="voice-recording-bar" class="hidden px-4 py-2.5 rounded-2xl bg-rose-500/15 border border-rose-500/40 flex items-center justify-between text-xs animate-fade-in">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+                    <span class="font-extrabold text-rose-500">جاري تسجيل الرسالة الصوتية وتحويلها لنص...</span>
+                    <div class="flex items-center gap-1 h-5">
+                      <span class="w-1 bg-rose-500 rounded-full voice-bar"></span>
+                      <span class="w-1 bg-rose-500 rounded-full voice-bar"></span>
+                      <span class="w-1 bg-rose-500 rounded-full voice-bar"></span>
+                      <span class="w-1 bg-rose-500 rounded-full voice-bar"></span>
+                      <span class="w-1 bg-rose-500 rounded-full voice-bar"></span>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button type="button" onclick="cancelVoiceRecording()" class="px-3 py-1 rounded-lg text-[#57534E] dark:text-[#9CAFA2] hover:text-rose-500 font-bold">إلغاء</button>
+                    <button type="button" onclick="finishVoiceRecording()" class="px-3.5 py-1 rounded-lg bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold">إرسال النص ✓</button>
+                  </div>
+                </div>
+
+                <!-- Attachment Preview Strip -->
+                <div id="chat-attachment-preview-bar" class="hidden px-3.5 py-2 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#059669]/40 dark:border-[#82E0A6]/40 flex items-center justify-between gap-3 text-xs animate-fade-in">
+                  <div class="flex items-center gap-2.5 min-w-0">
+                    <img id="chat-attachment-thumb" alt="معاينة المرفق" class="hidden w-9 h-9 rounded-lg object-cover border border-[#E5E0D8] dark:border-[#2F4235]" />
+                    <span id="chat-attachment-icon" class="text-lg">📎</span>
+                    <div class="truncate">
+                      <p id="chat-attachment-name" class="font-extrabold truncate">attachment.jpg</p>
+                      <p class="text-[10px] text-[#059669] dark:text-[#82E0A6]">جاهز للإرسال مع رسالتك</p>
+                    </div>
+                  </div>
+                  <button type="button" onclick="clearPendingChatAttachment()" class="px-2.5 py-1 rounded-lg bg-rose-500/15 text-rose-500 font-bold text-[11px]">✕ إزالة</button>
+                </div>
+
+                <!-- Interactive Quick Reply Chips -->
+                <div class="flex items-center gap-2 overflow-x-auto custom-scroll pb-0.5">
+                  <button type="button" onclick="sendCustQuickReply('تتبع طلبي')"
+                    class="px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-[#F3EFEA] dark:bg-[#26362B] border border-[#059669]/40 dark:border-[#2F4235] text-[#059669] dark:text-[#F1F5F2] hover:border-[#82E0A6] transition-colors">
+                    تتبع طلبي
+                  </button>
+                  <button type="button" onclick="sendCustQuickReply('استرجاع منتج')"
+                    class="px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-[#F3EFEA] dark:bg-[#26362B] border border-[#059669]/40 dark:border-[#2F4235] text-[#059669] dark:text-[#F1F5F2] hover:border-[#82E0A6] transition-colors">
+                    استرجاع منتج
+                  </button>
+                  <button type="button" onclick="sendCustQuickReply('شكوى')"
+                    class="px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-[#F3EFEA] dark:bg-[#26362B] border border-[#D97706]/50 dark:border-[#F2A93B]/50 text-[#D97706] dark:text-[#F2A93B] hover:border-[#F2A93B] transition-colors">
+                    شكوى
+                  </button>
+                  <button type="button" onclick="sendCustQuickReply('كلم موظف')"
+                    class="px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-[#F3EFEA] dark:bg-[#26362B] border border-[#059669]/40 dark:border-[#2F4235] text-[#059669] dark:text-[#F1F5F2] hover:border-[#82E0A6] transition-colors">
+                    كلم موظف
+                  </button>
+                  <button type="button" onclick="sendCustQuickReply('عروض المنتجات')"
+                    class="px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-[#F3EFEA] dark:bg-[#26362B] border border-[#059669]/40 dark:border-[#2F4235] text-[#059669] dark:text-[#F1F5F2] hover:border-[#82E0A6] transition-colors">
+                    عروض المنتجات
+                  </button>
+                </div>
+
+                <!-- Input Bar -->
+                <form onsubmit="handleCustChatSubmit(event)" class="flex items-center gap-2.5">
+                  <div class="flex-1 flex items-center bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] focus-within:border-[#82E0A6] rounded-2xl px-4 py-2 transition-colors">
+                    <button type="button" onclick="triggerChatFilePicker()" title="إرفاق صورة أو ملف"
+                      class="p-2 rounded-xl text-[#57534E] dark:text-[#9CAFA2] hover:text-[#059669] dark:hover:text-[#82E0A6] hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                      📎
+                    </button>
+                    <input id="chat-hidden-file" type="file" accept="image/*" class="hidden" onchange="handleChatFileSelected(event)" />
+
+                    <input id="cust-chat-input" type="text" autocomplete="off" placeholder="اكتب سؤالك أو استفسارك لدليلي..."
+                      class="flex-1 bg-transparent text-xs sm:text-sm focus:outline-none px-3 py-1 placeholder-[#57534E] dark:placeholder-[#9CAFA2]" />
+
+                    <button type="button" onclick="toggleVoiceRecording()" title="تسجيل رسالة صوتية"
+                      class="p-2 rounded-xl text-[#57534E] dark:text-[#9CAFA2] hover:text-[#059669] dark:hover:text-[#82E0A6] hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                      🎤
+                    </button>
+                  </div>
+
+                  <button type="submit" aria-label="إرسال"
+                    class="px-5 h-12 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] hover:opacity-95 text-white dark:text-[#0E1711] font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm shrink-0 active:scale-95 transition-all">
+                    <span>إرسال</span>
+                    <svg class="w-4 h-4 rotate-180" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Left Context Sidebar (w-80) -->
+          <aside class="w-80 hidden xl:flex flex-col border-r border-[#E5E0D8] dark:border-[#2F4235] bg-white/80 dark:bg-[#1E2B22]/70 p-4 overflow-y-auto custom-scroll space-y-4 shrink-0">
+
+            <!-- Live Mini-Tracker for Active Order #ORD-9482 -->
+            <div class="p-4 rounded-2xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] space-y-3 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold">طلبك النشط حالياً</span>
+                <span class="font-en font-extrabold text-[#059669] dark:text-[#82E0A6]">#ORD-9482</span>
+              </div>
+              <p class="text-[11px] font-bold leading-relaxed">سماعة لاسلكية برو ANC + شاحن سريع 65W</p>
+
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-[10px] font-bold">
+                  <span class="text-[#D97706] dark:text-[#F2A93B]">في الطريق إليك</span>
+                  <span class="font-en">75%</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-[#F3EFEA] dark:bg-[#26362B] overflow-hidden">
+                  <div class="h-full rounded-full bg-[#059669] dark:bg-[#82E0A6]" style="width: 75%"></div>
+                </div>
+                <p class="text-[10px] text-[#57534E] dark:text-[#9CAFA2]">المندوب: كابتن محمود حسن • 5:00 م</p>
+              </div>
+
+              <button type="button" onclick="goCustomerScreen('track')"
+                class="w-full py-2.5 rounded-xl bg-[#059669]/15 dark:bg-[#82E0A6]/15 hover:bg-[#059669]/25 dark:hover:bg-[#82E0A6]/25 text-[#059669] dark:text-[#82E0A6] font-extrabold text-[11px] transition-colors">
+                تتبع مسار الشحنة بالكامل ←
+              </button>
+            </div>
+
+            <!-- Quick Self-Service Buttons -->
+            <div class="p-4 rounded-2xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2.5 text-xs">
+              <h3 class="font-extrabold">خدمات ذاتية سريعة</h3>
+              <div class="grid grid-cols-2 gap-2 text-[11px]">
+                <button type="button" onclick="goCustomerScreen('track')" class="p-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-bold text-right space-y-1">
+                  <span class="block text-base">📦</span>
+                  <span class="block">تتبع الطلبات</span>
+                </button>
+                <button type="button" onclick="goCustomerScreen('complaint')" class="p-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-bold text-right space-y-1">
+                  <span class="block text-base">📝</span>
+                  <span class="block">شكوى / استرجاع</span>
+                </button>
+                <button type="button" onclick="goCustomerScreen('tickets')" class="p-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-bold text-right space-y-1">
+                  <span class="block text-base">🎫</span>
+                  <span class="block">تذاكر الدعم</span>
+                </button>
+                <button type="button" onclick="goCustomerScreen('rate')" class="p-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-bold text-right space-y-1">
+                  <span class="block text-base">⭐</span>
+                  <span class="block">تقييم الخدمة</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Clickable FAQ Suggestions from Knowledge Base -->
+            <div class="p-4 rounded-2xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2.5 text-xs">
+              <div class="flex items-center justify-between">
+                <h3 class="font-extrabold">أسئلة شائعة من قاعدة المعرفة</h3>
+                <span class="text-[10px] text-[#059669] dark:text-[#82E0A6] font-bold">مباشر</span>
+              </div>
+              <div id="chat-context-kb-list" class="space-y-1.5 text-[11px]">
+                <!-- Populated dynamically from APP_STATE.knowledgeBase -->
+              </div>
+            </div>
+
+          </aside>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- SCREEN 2: TRACK ORDER                                             -->
+        <!-- ================================================================= -->
+        <div id="cscreen-track" class="cscreen-view hidden flex-1 overflow-y-auto custom-scroll p-6 sm:p-8 animate-fade-in">
+          <div class="max-w-4xl mx-auto w-full space-y-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-xl font-extrabold">تتبع حالة الطلبات</h2>
+                <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">تابع خط سير شحناتك ومواعيد التسليم المتوقعة</p>
+              </div>
+              <button type="button" onclick="goCustomerScreen('home')" class="px-4 py-2 rounded-xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] text-xs font-extrabold">→ العودة للشات</button>
+            </div>
+
+            <div id="track-order-tabs" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5"></div>
+            <div id="track-order-content" class="space-y-4"></div>
+          </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- SCREEN 3: SUBMIT COMPLAINT                                        -->
+        <!-- ================================================================= -->
+        <div id="cscreen-complaint" class="cscreen-view hidden flex-1 overflow-y-auto custom-scroll p-6 sm:p-8 animate-fade-in">
+          <div class="max-w-3xl mx-auto w-full space-y-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-xl font-extrabold">تقديم شكوى أو طلب استرجاع</h2>
+                <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">يتم تحليل المشاعر تلقائياً وتوجيه تذكرتك فوراً لموظف خدمة العملاء</p>
+              </div>
+              <span id="comp-live-sentiment" class="px-3 py-1.5 rounded-full text-xs font-extrabold bg-[#D97706]/15 dark:bg-[#F2A93B]/15 text-[#D97706] dark:text-[#F2A93B]">محايد</span>
+            </div>
+
+            <form onsubmit="handleComplaintFormSubmit(event)" class="space-y-4 bg-white dark:bg-[#1E2B22] p-6 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] shadow-xs">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold mb-1.5">نوع الشكوى / الطلب</label>
+                  <select id="comp-type" onchange="updateComplaintSentimentLive()" class="w-full px-3.5 py-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs">
+                    <option value="تأخر الشحن">تأخر الشحن</option>
+                    <option value="استرجاع أو استبدال منتج">استرجاع أو استبدال منتج</option>
+                    <option value="منتج تالف">منتج تالف</option>
+                    <option value="منتج غير مطابق">منتج غير مطابق</option>
+                    <option value="مشكلة في الدفع">مشكلة في الدفع</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold mb-1.5">رقم الطلب</label>
+                  <select id="comp-order" class="w-full px-3.5 py-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs font-en">
+                    <option value="#ORD-9482">#ORD-9482 (سماعة لاسلكية برو ANC)</option>
+                    <option value="#ORD-9310">#ORD-9310 (ساعة ذكية ألترا GT)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold mb-1.5">وصف المشكلة بالتفصيل</label>
+                <textarea id="comp-desc" rows="4" required oninput="updateComplaintSentimentLive()" placeholder="اشرح تفاصيل المشكلة لنساعدك في أسرع وقت..."
+                  class="w-full px-4 py-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs focus:outline-none focus:border-[#82E0A6]"></textarea>
+              </div>
+
+              <!-- Image Upload Preview -->
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <label class="text-xs font-bold">إرفاق صورة توضيحية (اختياري)</label>
+                  <button type="button" onclick="attachSampleDamagedPhoto()" class="text-xs font-extrabold text-[#059669] dark:text-[#82E0A6] hover:underline">
+                    + إرفاق صورة تجريبية
+                  </button>
+                </div>
+                <label class="block p-4 rounded-2xl border-2 border-dashed border-[#059669]/40 dark:border-[#82E0A6]/40 bg-[#F3EFEA] dark:bg-[#26362B] text-center cursor-pointer hover:border-[#82E0A6] transition-colors">
+                  <input id="comp-file-input" type="file" accept="image/*" class="hidden" onchange="handleComplaintFileUpload(event)" />
+                  <span id="comp-upload-label" class="text-xs text-[#57534E] dark:text-[#9CAFA2]">اضغط لرفع صورة المنتج أو الفاتورة</span>
+                </label>
+                <div id="comp-photo-preview-wrap" class="hidden relative rounded-2xl overflow-hidden border border-[#E5E0D8] dark:border-[#2F4235]">
+                  <img id="comp-photo-preview" alt="معاينة المرفق" class="w-full h-40 object-cover" />
+                  <button type="button" onclick="clearComplaintPhoto()" class="absolute top-2.5 left-2.5 px-3 py-1 rounded-xl bg-black/75 text-white text-xs font-bold">✕ إزالة</button>
+                </div>
+              </div>
+
+              <div class="flex justify-end gap-3 pt-2">
+                <button type="button" onclick="goCustomerScreen('home')" class="px-5 py-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] text-xs font-bold">إلغاء</button>
+                <button type="submit"
+                  class="px-7 py-3.5 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs shadow-md active:scale-[0.99] transition-transform">
+                  إرسال الشكوى وفتح تذكرة متابعة ←
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- SCREEN 4: MY TICKETS                                              -->
+        <!-- ================================================================= -->
+        <div id="cscreen-tickets" class="cscreen-view hidden flex-1 overflow-y-auto custom-scroll p-6 sm:p-8 animate-fade-in">
+          <div class="max-w-5xl mx-auto w-full space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 class="text-xl font-extrabold">تذاكر الدعم الفني</h2>
+                <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">تابع حالة تذاكرك المفتوحة وتواصل مباشرة مع فريق خدمة العملاء</p>
+              </div>
+              <button type="button" onclick="goCustomerScreen('complaint')" class="px-4 py-2.5 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] text-xs font-extrabold">
+                + فتح تذكرة / شكوى جديدة
+              </button>
+            </div>
+
+            <div id="cust-ticket-filter-bar" class="flex items-center gap-2 text-xs overflow-x-auto custom-scroll pb-1">
+              <button type="button" onclick="filterCustomerTickets('all')" data-tfilter="all" class="tfilter-pill px-4 py-2 rounded-full bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold whitespace-nowrap">الكل</button>
+              <button type="button" onclick="filterCustomerTickets('مفتوحة')" data-tfilter="مفتوحة" class="tfilter-pill px-4 py-2 rounded-full bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] font-bold whitespace-nowrap">مفتوحة</button>
+              <button type="button" onclick="filterCustomerTickets('قيد المراجعة')" data-tfilter="قيد المراجعة" class="tfilter-pill px-4 py-2 rounded-full bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] font-bold whitespace-nowrap">قيد المراجعة</button>
+              <button type="button" onclick="filterCustomerTickets('مغلقة')" data-tfilter="مغلقة" class="tfilter-pill px-4 py-2 rounded-full bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] font-bold whitespace-nowrap">مغلقة</button>
+            </div>
+
+            <div id="cust-tickets-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+          </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- SCREEN 5: TICKET DETAILS                                          -->
+        <!-- ================================================================= -->
+        <div id="cscreen-ticket-details" class="cscreen-view hidden flex-1 flex flex-col overflow-hidden animate-fade-in">
+          <div class="px-6 py-3.5 bg-white dark:bg-[#1E2B22] border-b border-[#E5E0D8] dark:border-[#2F4235] flex items-center justify-between shrink-0">
+            <div class="flex items-center gap-3">
+              <button type="button" onclick="goCustomerScreen('tickets')" class="px-3.5 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] text-xs font-bold">→ تذاكري</button>
+              <div>
+                <h3 id="td-header-id" class="font-en font-extrabold text-sm">#TKT-2041</h3>
+                <span id="td-header-status" class="text-xs text-[#059669] dark:text-[#82E0A6] font-bold">مفتوحة</span>
+              </div>
+            </div>
+            <button type="button" onclick="resolveAndRateTicket()" class="px-4 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] text-xs font-extrabold">
+              تم الحل وتقييم الخدمة ⭐
+            </button>
+          </div>
+
+          <div class="flex-1 overflow-y-auto custom-scroll p-6">
+            <div id="td-body-scroll" class="max-w-4xl mx-auto w-full space-y-3.5 text-xs"></div>
+          </div>
+
+          <form onsubmit="sendCustomerTicketMsg(event)" class="p-4 bg-white dark:bg-[#1E2B22] border-t border-[#E5E0D8] dark:border-[#2F4235] shrink-0">
+            <div class="max-w-4xl mx-auto w-full flex items-center gap-2.5">
+              <input id="td-reply-input" type="text" placeholder="اكتب ردك لموظف الدعم..."
+                class="flex-1 px-4 py-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs focus:outline-none focus:border-[#82E0A6]" />
+              <button type="submit" class="px-6 py-3 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">إرسال ←</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- SCREEN 6: CONVERSATION HISTORY + EXPORT (SUMMARY / JSON)          -->
+        <!-- ================================================================= -->
+        <div id="cscreen-history" class="cscreen-view hidden flex-1 overflow-y-auto custom-scroll p-6 sm:p-8 animate-fade-in">
+          <div class="max-w-5xl mx-auto w-full space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 class="text-xl font-extrabold">سجل المحادثات السابقة</h2>
+                <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">ابحث في محادثاتك السابقة أو قم بتصديرها بصيغة JSON / نص</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <input id="history-search-input" type="text" oninput="renderCustomerHistory()" placeholder="🔍 بحث في المحادثات..."
+                  class="px-3.5 py-2 rounded-xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] text-xs focus:outline-none focus:border-[#82E0A6]" />
+                <button type="button" onclick="exportChatTranscript('CONV-101', 'json')" class="px-4 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] text-xs font-extrabold">
+                  تصدير JSON
+                </button>
+              </div>
+            </div>
+
+            <div id="cust-history-list" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs"></div>
+          </div>
+
+          <!-- Transcript Viewer Modal -->
+          <div id="history-viewer-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-xs p-4 flex items-center justify-center">
+            <div class="w-full max-w-xl bg-white dark:bg-[#1E2B22] rounded-3xl p-6 border border-[#E5E0D8] dark:border-[#2F4235] space-y-4 text-xs shadow-2xl animate-slide-up">
+              <div class="flex items-center justify-between border-b border-[#E5E0D8] dark:border-[#2F4235] pb-3">
+                <h3 id="hvm-title" class="font-extrabold text-base">نص المحادثة</h3>
+                <button type="button" onclick="closeHistoryViewer()" class="text-[#57534E] dark:text-[#9CAFA2] font-bold text-sm">✕</button>
+              </div>
+              <div id="hvm-body" class="max-h-72 overflow-y-auto custom-scroll space-y-2 text-xs leading-relaxed"></div>
+              <div class="flex justify-end gap-2 pt-2">
+                <button type="button" onclick="closeHistoryViewer()" class="px-4 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] font-bold">إغلاق</button>
+                <button type="button" onclick="exportChatTranscript('CONV-101', 'txt')" class="px-4 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] font-extrabold">تحميل ملخص نصي</button>
+                <button type="button" onclick="exportChatTranscript('CONV-101', 'json')" class="px-4 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold">تصدير JSON</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- SCREEN 7: RATE SERVICE                                            -->
+        <!-- ================================================================= -->
+        <div id="cscreen-rate" class="cscreen-view hidden flex-1 overflow-y-auto custom-scroll p-6 sm:p-8 flex items-center justify-center animate-fade-in">
+          <div class="max-w-xl w-full bg-white dark:bg-[#1E2B22] p-8 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] text-center space-y-5 shadow-sm">
+            <div class="w-16 h-16 mx-auto rounded-3xl bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] flex items-center justify-center text-3xl">
+              ⭐
+            </div>
+            <div>
+              <h2 class="text-2xl font-extrabold">قيّم تجربتك مع دليلي</h2>
+              <p class="text-xs text-[#57534E] dark:text-[#9CAFA2] mt-1">رأيك يُحدّث مؤشر رضا العملاء مباشرة في لوحة الإدارة</p>
+            </div>
+
+            <div class="flex items-center justify-center gap-3 text-4xl" id="star-selector">
+              <button type="button" onclick="selectStarRating(1)" class="star-btn text-[#D97706] dark:text-[#F2A93B] transition-transform hover:scale-125">★</button>
+              <button type="button" onclick="selectStarRating(2)" class="star-btn text-[#D97706] dark:text-[#F2A93B] transition-transform hover:scale-125">★</button>
+              <button type="button" onclick="selectStarRating(3)" class="star-btn text-[#D97706] dark:text-[#F2A93B] transition-transform hover:scale-125">★</button>
+              <button type="button" onclick="selectStarRating(4)" class="star-btn text-[#D97706] dark:text-[#F2A93B] transition-transform hover:scale-125">★</button>
+              <button type="button" onclick="selectStarRating(5)" class="star-btn text-[#D97706] dark:text-[#F2A93B] transition-transform hover:scale-125">★</button>
+            </div>
+            <p id="star-label" class="text-xs font-extrabold text-[#059669] dark:text-[#82E0A6]">ممتاز جداً! (5 / 5)</p>
+
+            <div class="flex flex-wrap justify-center gap-2 text-xs">
+              <button type="button" onclick="toggleRateTag(this)" class="rate-tag px-3.5 py-1.5 rounded-full bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">سرعة الاستجابة</button>
+              <button type="button" onclick="toggleRateTag(this)" class="rate-tag px-3.5 py-1.5 rounded-full bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">دقة المساعد الذكي</button>
+              <button type="button" onclick="toggleRateTag(this)" class="rate-tag px-3.5 py-1.5 rounded-full bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">تعاون الموظف</button>
+            </div>
+
+            <textarea id="rate-comment" rows="3" placeholder="اكتب تعليقك أو اقتراحك هنا (اختياري)..."
+              class="w-full p-4 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs focus:outline-none focus:border-[#82E0A6]"></textarea>
+
+            <div class="flex gap-3">
+              <button type="button" onclick="goCustomerScreen('home')" class="px-5 py-3.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] text-xs font-bold">تخطي</button>
+              <button type="button" onclick="submitCustomerRating()"
+                class="flex-1 py-3.5 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-sm shadow-md">
+                إرسال التقييم والعودة للمحادثة
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- SCREEN 8: NOTIFICATIONS                                           -->
+        <!-- ================================================================= -->
+        <div id="cscreen-notifications" class="cscreen-view hidden flex-1 overflow-y-auto custom-scroll p-6 sm:p-8 animate-fade-in">
+          <div class="max-w-4xl mx-auto w-full space-y-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-xl font-extrabold">مركز الإشعارات والتنبيهات</h2>
+                <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">تحديثات الشحن وردود موظفي خدمة العملاء على تذاكرك</p>
+              </div>
+              <button type="button" onclick="markAllNotifsRead()" class="px-4 py-2 rounded-xl bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] text-xs font-extrabold">
+                تحديد الكل كمقروء ✓
+              </button>
+            </div>
+
+            <div id="cust-notifs-list" class="space-y-2.5 text-xs"></div>
+          </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- SCREEN 9: PROFILE & SETTINGS                                      -->
+        <!-- ================================================================= -->
+        <div id="cscreen-profile" class="cscreen-view hidden flex-1 overflow-y-auto custom-scroll p-6 sm:p-8 animate-fade-in">
+          <div class="max-w-3xl mx-auto w-full space-y-5">
+            <div>
+              <h2 class="text-xl font-extrabold">الإعدادات والملف الشخصي</h2>
+              <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">تعديل بيانات الحساب، اللغة، الإشعارات، وتهيئة البيانات التجريبية</p>
+            </div>
+
+            <div class="bg-white dark:bg-[#1E2B22] p-6 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] space-y-4 text-xs">
+              <div class="flex items-center gap-4 pb-4 border-b border-[#E5E0D8] dark:border-[#2F4235]">
+                <div id="profile-avatar-circle" class="w-14 h-14 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xl flex items-center justify-center">
+                  س
+                </div>
+                <div>
+                  <p id="profile-user-name" class="font-extrabold text-base">سلمى محمود</p>
+                  <p id="profile-user-contact" class="text-xs text-[#57534E] dark:text-[#9CAFA2] font-en">01012345678</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pb-2">
+                <div>
+                  <label class="block font-bold mb-1">تعديل الاسم الكامل</label>
+                  <input id="profile-edit-name" type="text" value="سلمى محمود" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235]" />
+                </div>
+                <div>
+                  <label class="block font-bold mb-1">رقم الهاتف أو البريد</label>
+                  <input id="profile-edit-contact" type="text" value="01012345678" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-en" />
+                </div>
+              </div>
+              <div class="flex justify-end">
+                <button type="button" onclick="saveCustomerProfileEdits()" class="px-4 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold">
+                  حفظ تعديلات الحساب
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between py-1.5 border-t border-[#E5E0D8] dark:border-[#2F4235] pt-3">
+                <span class="font-bold">لغة التطبيق</span>
+                <button type="button" onclick="toggleAppLanguage()" id="lang-toggle-label" class="px-4 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-extrabold">العربية (RTL)</button>
+              </div>
+
+              <div class="flex items-center justify-between py-1.5">
+                <span class="font-bold">إشعارات الطلبات والتذاكر الفورية</span>
+                <input type="checkbox" checked onchange="showToast('تم تحديث إعدادات الإشعارات')" class="w-4 h-4 accent-[#059669]" />
+              </div>
+
+              <div class="flex items-center justify-between py-1.5">
+                <span class="font-bold">المظهر (ليلي / نهاري)</span>
+                <button type="button" onclick="toggleAppTheme()" class="px-4 py-2 rounded-xl bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] font-extrabold">
+                  <span class="dark:hidden">🌙 الوضع الليلي</span>
+                  <span class="hidden dark:inline">☀️ الوضع النهاري</span>
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between py-2 pt-3 border-t border-[#E5E0D8] dark:border-[#2F4235]">
+                <span class="text-[#57534E] dark:text-[#9CAFA2]">تهيئة بيانات التجربة</span>
+                <button type="button" onclick="resetDemoStorage()" class="text-[#D97706] dark:text-[#F2A93B] font-extrabold hover:underline">إعادة ضبط البيانات التجريبية ↻</button>
+              </div>
+
+              <button type="button" onclick="logoutToLoginScreen()"
+                class="w-full mt-2 py-3.5 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-500 font-extrabold text-xs transition-colors">
+                تسجيل الخروج
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================= -->
+  <!-- ROLE 2: SUPPORT AGENT WEB DASHBOARD                                     -->
+  <!-- ======================================================================= -->
+  <section id="role-view-agent" class="role-view hidden flex-1 w-full bg-[#FAF8F5] dark:bg-[#121A14] flex flex-col animate-fade-in">
+    
+    <!-- Agent Top Header with Dalily Compass SVG + Clean "دليلي" -->
+    <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#1E2B22]/95 backdrop-blur-md border-b border-[#E5E0D8] dark:border-[#2F4235] px-4 sm:px-6 py-3">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] flex items-center justify-center shadow-xs shrink-0">
+            <svg class="w-[38px] h-[38px]" viewBox="0 0 100 100" fill="none" aria-label="شعار دليلي">
+              <circle cx="50" cy="50" r="44" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3"/>
+              <line x1="50" y1="9" x2="50" y2="16" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="3" stroke-linecap="round"/>
+              <line x1="50" y1="84" x2="50" y2="91" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3" stroke-linecap="round"/>
+              <line x1="9" y1="50" x2="16" y2="50" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3" stroke-linecap="round"/>
+              <line x1="84" y1="50" x2="91" y2="50" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="50" cy="50" r="31" class="stroke-[#E5E0D8] dark:stroke-[#2F4235]" stroke-width="2"/>
+              <g transform="rotate(45 50 50)">
+                <polygon points="50,15 59,50 41,50" class="fill-[#D97706] dark:fill-[#F2A93B]"/>
+                <polygon points="50,85 59,50 41,50" class="fill-[#059669] dark:fill-[#82E0A6]"/>
+              </g>
+              <circle cx="50" cy="50" r="6" class="fill-white dark:fill-[#121A14] stroke-[#1C1917] dark:stroke-[#F1F5F2]" stroke-width="2.2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="font-black text-base text-[#1C1917] dark:text-[#F1F5F2]">دليلي — منصة موظف الدعم</h1>
+              <span class="px-2 py-0.5 rounded-full bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] text-[10px] font-extrabold">● متصل الآن</span>
+            </div>
+            <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">أحمد كمال — أخصائي دعم أول</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <button onclick="quickDemoLogin('customer')" class="px-3 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">
+            واجهة العميل
+          </button>
+          <button onclick="quickDemoLogin('admin')" class="px-3 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">
+            لوحة الأدمن
+          </button>
+          <button onclick="toggleAppTheme()" class="px-3 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">
+            <span class="dark:hidden">🌙 ليلي</span>
+            <span class="hidden dark:inline text-[#82E0A6]">☀️ نهاري</span>
+          </button>
+          <button onclick="logoutToLoginScreen()" class="px-3.5 py-2 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-500 font-extrabold transition-colors">
+            تسجيل الخروج
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main 3-Column Agent Workspace -->
+    <div class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-5 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+      
+      <!-- Column 1: Assigned Tickets Queue (3 cols) -->
+      <aside class="lg:col-span-3 space-y-3">
+        <div class="bg-white dark:bg-[#1E2B22] p-3.5 rounded-2xl border border-[#E5E0D8] dark:border-[#2F4235] space-y-2.5 text-xs">
+          <input id="agent-search-input" type="text" oninput="renderAgentDashboard()" placeholder="🔍 بحث برقم التذكرة أو العميل..."
+            class="w-full px-3 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs focus:outline-none focus:border-[#82E0A6]" />
+          
+          <div class="grid grid-cols-2 gap-1.5">
+            <select id="agent-filter-priority" onchange="renderAgentDashboard()" class="px-2.5 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-[11px] font-bold">
+              <option value="all">الأولوية: الكل</option>
+              <option value="عاجل">عاجل</option>
+              <option value="مرتفع">مرتفع</option>
+              <option value="عادي">عادي</option>
+            </select>
+            <select id="agent-filter-sentiment" onchange="renderAgentDashboard()" class="px-2.5 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-[11px] font-bold">
+              <option value="all">المشاعر: الكل</option>
+              <option value="غاضب/عاجل 🔴">غاضب/عاجل 🔴</option>
+              <option value="محايد">محايد</option>
+              <option value="إيجابي">إيجابي</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between px-1 text-xs">
+          <span class="font-extrabold">التذاكر المُسندة (<span id="agent-queue-count">2</span>)</span>
+          <span class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">مرتبة بالأولوية</span>
+        </div>
+
+        <div id="agent-tickets-queue" class="space-y-2.5"></div>
+      </aside>
+
+      <!-- Column 2: Active Ticket View & Bot Transcript (6 cols) -->
+      <div class="lg:col-span-6 bg-white dark:bg-[#1E2B22] rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] overflow-hidden shadow-xs">
+        <div id="agent-ticket-workspace" class="p-5 space-y-4"></div>
+      </div>
+
+      <!-- Column 3: Customer Profile & Order Summary Card (3 cols) -->
+      <aside id="agent-customer-sidebar" class="lg:col-span-3 space-y-4"></aside>
+
+    </div>
+
+    <!-- Transfer Ticket Modal -->
+    <div id="transfer-modal" class="fixed inset-0 z-50 hidden bg-black/65 backdrop-blur-xs flex items-center justify-center p-4">
+      <div class="w-full max-w-md bg-white dark:bg-[#1E2B22] rounded-3xl p-6 border border-[#E5E0D8] dark:border-[#2F4235] space-y-4 shadow-2xl animate-slide-up">
+        <h3 class="font-extrabold text-base">تحويل التذكرة لموظف آخر</h3>
+        <div>
+          <label class="block text-xs font-bold mb-1">اختر الموظف المستلم</label>
+          <select id="transfer-target-agent" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs">
+            <option value="سارة علي">سارة علي (أخصائية شكاوى واسترجاع)</option>
+            <option value="محمود حسن">محمود حسن (أخصائي خدمة عملاء)</option>
+            <option value="ندى حسن">ندى حسن (مشرف دعم فني)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold mb-1">ملاحظة داخلية للزميل</label>
+          <textarea id="transfer-note" rows="2" placeholder="اكتب ملخص سريع لحالة العميل..."
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs"></textarea>
+        </div>
+        <div class="flex justify-end gap-2">
+          <button onclick="closeTransferModal()" class="px-4 py-2 rounded-xl text-xs font-bold text-[#57534E] dark:text-[#9CAFA2]">إلغاء</button>
+          <button onclick="confirmTicketTransfer()" class="px-5 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">تأكيد التحويل</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- ROLE 3: ADMIN WEB DASHBOARD                                             -->
+  <!-- ======================================================================= -->
+  <section id="role-view-admin" class="role-view hidden flex-1 w-full bg-[#FAF8F5] dark:bg-[#121A14] flex flex-col animate-fade-in">
+    
+    <!-- Admin Top Header with Dalily Compass SVG + Clean "دليلي" -->
+    <header class="sticky top-0 z-30 bg-white/95 dark:bg-[#1E2B22]/95 backdrop-blur-md border-b border-[#E5E0D8] dark:border-[#2F4235] px-4 sm:px-6 py-3">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] flex items-center justify-center shadow-xs shrink-0">
+            <svg class="w-[38px] h-[38px]" viewBox="0 0 100 100" fill="none" aria-label="شعار دليلي">
+              <circle cx="50" cy="50" r="44" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3"/>
+              <line x1="50" y1="9" x2="50" y2="16" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="3" stroke-linecap="round"/>
+              <line x1="50" y1="84" x2="50" y2="91" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3" stroke-linecap="round"/>
+              <line x1="9" y1="50" x2="16" y2="50" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3" stroke-linecap="round"/>
+              <line x1="84" y1="50" x2="91" y2="50" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="50" cy="50" r="31" class="stroke-[#E5E0D8] dark:stroke-[#2F4235]" stroke-width="2"/>
+              <g transform="rotate(45 50 50)">
+                <polygon points="50,15 59,50 41,50" class="fill-[#D97706] dark:fill-[#F2A93B]"/>
+                <polygon points="50,85 59,50 41,50" class="fill-[#059669] dark:fill-[#82E0A6]"/>
+              </g>
+              <circle cx="50" cy="50" r="6" class="fill-white dark:fill-[#121A14] stroke-[#1C1917] dark:stroke-[#F1F5F2]" stroke-width="2.2"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="font-black text-base text-[#1C1917] dark:text-[#F1F5F2]">دليلي — لوحة إدارة النظام والتحليلات</h1>
+            <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">إدارة الذكاء الاصطناعي، قاعدة المعرفة، وفريق خدمة العملاء</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <button onclick="quickDemoLogin('customer')" class="px-3 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">
+            واجهة العميل
+          </button>
+          <button onclick="quickDemoLogin('agent')" class="px-3 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">
+            لوحة الموظف
+          </button>
+          <button onclick="toggleAppTheme()" class="px-3 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">
+            <span class="dark:hidden">🌙 ليلي</span>
+            <span class="hidden dark:inline text-[#82E0A6]">☀️ نهاري</span>
+          </button>
+          <button onclick="logoutToLoginScreen()" class="px-3.5 py-2 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-500 font-extrabold transition-colors">
+            تسجيل الخروج
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Admin Layout: Sidebar + Main Content -->
+    <div class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- Admin Sidebar Navigation (3 cols) -->
+      <aside class="lg:col-span-3 bg-white dark:bg-[#1E2B22] rounded-3xl p-4 border border-[#E5E0D8] dark:border-[#2F4235] space-y-1.5">
+        <button onclick="switchAdminView('analytics')" data-aview="analytics" class="admin-nav-btn w-full flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-xs font-extrabold bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711]">
+          <span>📊</span> <span>التحليلات (Analytics)</span>
+        </button>
+        <button onclick="switchAdminView('agents')" data-aview="agents" class="admin-nav-btn w-full flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-xs font-bold text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B]">
+          <span>👥</span> <span>إدارة الموظفين (Manage Agents)</span>
+        </button>
+        <button onclick="switchAdminView('kb')" data-aview="kb" class="admin-nav-btn w-full flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-xs font-bold text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B]">
+          <span>📚</span> <span>قاعدة المعرفة (Knowledge Base)</span>
+        </button>
+        <button onclick="switchAdminView('all-tickets')" data-aview="all-tickets" class="admin-nav-btn w-full flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-xs font-bold text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B]">
+          <span>🎫</span> <span>جميع التذاكر (All Tickets)</span>
+        </button>
+        <button onclick="switchAdminView('settings')" data-aview="settings" class="admin-nav-btn w-full flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-xs font-bold text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B]">
+          <span>⚙️</span> <span>إعدادات النظام (System Settings)</span>
+        </button>
+      </aside>
+
+      <!-- Admin Content Panels (9 cols) -->
+      <div class="lg:col-span-9 space-y-6">
+
+        <!-- =============================================================== -->
+        <!-- ADMIN VIEW 1: ANALYTICS                                         -->
+        <!-- =============================================================== -->
+        <div id="aview-analytics" class="admin-view space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl font-extrabold">تحليلات الأداء ورضا العملاء</h2>
+            <span class="text-xs text-[#57534E] dark:text-[#9CAFA2]">تحديث لحظي من المحادثات والتذاكر</span>
+          </div>
+
+          <!-- Top 4 KPI Summary Cards -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="bg-white dark:bg-[#1E2B22] p-5 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235]">
+              <span class="text-xs text-[#57534E] dark:text-[#9CAFA2]">إجمالي المحادثات</span>
+              <p id="admin-kpi-chats" class="text-2xl sm:text-3xl font-extrabold font-en mt-1">1,428</p>
+              <span class="text-[11px] text-[#059669] dark:text-[#82E0A6] font-bold">↑ +18.4% هذا الأسبوع</span>
+            </div>
+            <div class="bg-white dark:bg-[#1E2B22] p-5 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235]">
+              <span class="text-xs text-[#57534E] dark:text-[#9CAFA2]">نسبة الحل الذاتي للبوت</span>
+              <p class="text-2xl sm:text-3xl font-extrabold font-en text-[#059669] dark:text-[#82E0A6] mt-1">84.6%</p>
+              <span class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">حل فوري بدون تصعيد</span>
+            </div>
+            <div class="bg-white dark:bg-[#1E2B22] p-5 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235]">
+              <span class="text-xs text-[#57534E] dark:text-[#9CAFA2]">متوسط تقييم العملاء</span>
+              <p id="admin-kpi-csat" class="text-2xl sm:text-3xl font-extrabold font-en text-[#D97706] dark:text-[#F2A93B] mt-1">4.8 / 5</p>
+              <span class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">محدّث مباشرة من التقييمات</span>
+            </div>
+            <div class="bg-white dark:bg-[#1E2B22] p-5 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235]">
+              <span class="text-xs text-[#57534E] dark:text-[#9CAFA2]">أكثر الشكاوى</span>
+              <p class="text-xl sm:text-2xl font-extrabold mt-1">تأخر الشحن</p>
+              <span class="text-[11px] text-[#D97706] dark:text-[#F2A93B] font-bold">44% من إجمالي البلاغات</span>
+            </div>
+          </div>
+
+          <!-- Interactive 7-Day Daily Conversation Volume SVG Chart -->
+          <div class="bg-white dark:bg-[#1E2B22] p-5 sm:p-6 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="font-extrabold text-base">حجم المحادثات اليومية (آخر 7 أيام)</h3>
+                <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">مقارنة المحادثات المحلولة ذاتياً بواسطة البوت مقابل التصعيد للموظفين</p>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3">
+                <div class="flex items-center gap-3 text-[11px] font-bold">
+                  <span class="flex items-center gap-1.5">
+                    <span class="w-3 h-3 rounded-sm bg-[#059669] dark:bg-[#82E0A6] inline-block"></span>
+                    <span>حلها البوت تلقائياً</span>
+                  </span>
+                  <span class="flex items-center gap-1.5">
+                    <span class="w-3 h-3 rounded-sm bg-[#D97706] dark:bg-[#F2A93B] inline-block"></span>
+                    <span>تصعيد لموظف</span>
+                  </span>
+                </div>
+
+                <div class="inline-flex p-1 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-[11px] font-extrabold">
+                  <button type="button" id="chart-mode-bars" onclick="setAdminChartMode('bars')"
+                    class="px-3 py-1 rounded-lg bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] transition-colors">
+                    أعمدة مجمعة
+                  </button>
+                  <button type="button" id="chart-mode-line" onclick="setAdminChartMode('line')"
+                    class="px-3 py-1 rounded-lg text-[#57534E] dark:text-[#9CAFA2] transition-colors">
+                    منحنى بياني
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Day Inspector Strip -->
+            <div id="chart-tooltip-box" class="px-4 py-2.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] flex flex-wrap items-center justify-between gap-2 text-xs">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-lg bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] font-extrabold" id="tt-day-name">يوم الخميس</span>
+                <span class="text-[#57534E] dark:text-[#9CAFA2]">مرر أو اضغط على أي يوم في الرسم البياني لعرض التفاصيل</span>
+              </div>
+              <div class="flex items-center gap-4 font-bold">
+                <span>الإجمالي: <strong id="tt-total" class="font-en text-sm">268</strong></span>
+                <span class="text-[#059669] dark:text-[#82E0A6]">البوت: <strong id="tt-bot" class="font-en">228</strong></span>
+                <span class="text-[#D97706] dark:text-[#F2A93B]">تصعيد: <strong id="tt-esc" class="font-en">40</strong></span>
+              </div>
+            </div>
+
+            <!-- Inline SVG Chart (viewBox="0 0 760 290", explicit height="290") -->
+            <div class="w-full overflow-x-auto">
+              <svg id="dalily-volume-svg" viewBox="0 0 760 290" width="100%" height="290" class="min-w-[560px] w-full h-[290px] block select-none" role="img" aria-label="رسم بياني لحجم المحادثات اليومية آخر 7 أيام">
+              </svg>
+            </div>
+          </div>
+
+          <!-- Top Complaint Reasons Progress Bars -->
+          <div class="bg-white dark:bg-[#1E2B22] p-6 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] space-y-4">
+            <h3 class="font-extrabold text-sm">أكثر أسباب الشكاوى تكراراً</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div class="p-4 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2">
+                <div class="flex justify-between font-extrabold"><span>تأخر الشحن والتوصيل</span><span class="font-en text-[#059669] dark:text-[#82E0A6]">44%</span></div>
+                <div class="w-full h-2.5 rounded-full bg-black/10 dark:bg-[#121A14]"><div class="h-full rounded-full bg-[#059669] dark:bg-[#82E0A6]" style="width: 44%"></div></div>
+              </div>
+              <div class="p-4 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2">
+                <div class="flex justify-between font-extrabold"><span>طلبات الاستبدال والاسترجاع</span><span class="font-en text-[#D97706] dark:text-[#F2A93B]">31%</span></div>
+                <div class="w-full h-2.5 rounded-full bg-black/10 dark:bg-[#121A14]"><div class="h-full rounded-full bg-[#D97706] dark:bg-[#F2A93B]" style="width: 31%"></div></div>
+              </div>
+              <div class="p-4 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2">
+                <div class="flex justify-between font-extrabold"><span>استفسارات الدفع والاسترداد</span><span class="font-en">25%</span></div>
+                <div class="w-full h-2.5 rounded-full bg-black/10 dark:bg-[#121A14]"><div class="h-full rounded-full bg-teal-500" style="width: 25%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADMIN VIEW 2: MANAGE AGENTS -->
+        <div id="aview-agents" class="admin-view hidden space-y-5">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-extrabold">إدارة موظفي خدمة العملاء</h2>
+            <button onclick="openAgentModal()" class="px-4 py-2.5 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">
+              + إضافة موظف جديد
+            </button>
+          </div>
+          <div id="admin-agents-list" class="space-y-3"></div>
+        </div>
+
+        <!-- ADMIN VIEW 3: KNOWLEDGE BASE -->
+        <div id="aview-kb" class="admin-view hidden space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 class="text-xl font-extrabold">قاعدة المعرفة (Knowledge Base)</h2>
+              <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">أي إضافة أو تعديل هنا ينعكس فوراً على إجابات مساعد دليلي للعملاء</p>
+            </div>
+            <button onclick="openKbModal()" class="px-4 py-2.5 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">
+              + إضافة معلومة / سياسة
+            </button>
+          </div>
+          <div id="admin-kb-list" class="space-y-3"></div>
+        </div>
+
+        <!-- ADMIN VIEW 4: ALL TICKETS -->
+        <div id="aview-all-tickets" class="admin-view hidden space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <h2 class="text-xl font-extrabold">سجل جميع التذاكر في المنصة</h2>
+            <div class="flex items-center gap-2">
+              <select id="admin-ticket-status-filter" onchange="renderAdminDashboard()" class="px-3 py-2 rounded-xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] text-xs font-bold">
+                <option value="all">الحالة: الكل</option>
+                <option value="مفتوحة">مفتوحة</option>
+                <option value="قيد المراجعة">قيد المراجعة</option>
+                <option value="مغلقة">مغلقة</option>
+              </select>
+              <input id="admin-ticket-search" type="text" oninput="renderAdminDashboard()" placeholder="🔍 بحث في التذاكر..."
+                class="px-3.5 py-2 rounded-xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] text-xs" />
+            </div>
+          </div>
+          <div id="admin-all-tickets-list" class="space-y-3"></div>
+        </div>
+
+        <!-- ADMIN VIEW 5: SYSTEM SETTINGS -->
+        <div id="aview-settings" class="admin-view hidden space-y-5">
+          <h2 class="text-xl font-extrabold">إعدادات النظام، التصعيد، والمظهر</h2>
+          <div class="bg-white dark:bg-[#1E2B22] p-6 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] space-y-5 text-xs">
+            <div class="space-y-2">
+              <label class="block font-extrabold">رسالة الترحيب الافتراضية لمساعد دليلي (تنعكس فوراً في شات العميل)</label>
+              <textarea id="setting-welcome-msg" rows="2" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235]"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-bold mb-1">حد الثقة للتصعيد التلقائي (AI Confidence)</label>
+                <div class="flex items-center gap-3">
+                  <input id="setting-confidence" type="range" min="50" max="95" value="75" oninput="document.getElementById('conf-val').textContent = this.value + '%'" class="flex-1 accent-[#059669]" />
+                  <span id="conf-val" class="font-en font-extrabold">75%</span>
+                </div>
+              </div>
+              <div>
+                <label class="block font-bold mb-1">الإغلاق التلقائي للتذاكر غير النشطة (ساعات)</label>
+                <select id="setting-autoclose-hours" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235]">
+                  <option value="24">بعد 24 ساعة</option>
+                  <option value="48" selected>بعد 48 ساعة</option>
+                  <option value="72">بعد 72 ساعة</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="space-y-2.5 pt-2 border-t border-[#E5E0D8] dark:border-[#2F4235]">
+              <h3 class="font-extrabold text-sm">قواعد التصعيد ومظهر النظام</h3>
+              <label class="flex items-center justify-between p-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B]">
+                <span>تصعيد تلقائي فوري عند اكتشاف غضب العميل (Sentiment: غاضب/عاجل 🔴)</span>
+                <input id="setting-auto-angry" type="checkbox" checked class="w-4 h-4 accent-[#059669]" />
+              </label>
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B]">
+                <span>مظهر لوحة الإدارة والمنصة</span>
+                <button type="button" onclick="toggleAppTheme()" class="px-3.5 py-1.5 rounded-xl bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] font-extrabold">
+                  <span class="dark:hidden">🌙 الوضع الليلي</span>
+                  <span class="hidden dark:inline">☀️ الوضع النهاري</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+              <button onclick="saveAdminSystemSettings()"
+                class="px-6 py-3 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold">
+                حفظ وتطبيق الإعدادات
+              </button>
+              <button onclick="resetDemoStorage()" class="px-4 py-2.5 rounded-xl bg-rose-500/15 text-rose-500 font-bold">
+                ↻ إعادة ضبط البيانات التجريبية
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Admin Agent Modal -->
+    <div id="admin-agent-modal" class="fixed inset-0 z-50 hidden bg-black/65 backdrop-blur-xs flex items-center justify-center p-4">
+      <div class="w-full max-w-md bg-white dark:bg-[#1E2B22] rounded-3xl p-6 border border-[#E5E0D8] dark:border-[#2F4235] space-y-4 shadow-2xl animate-slide-up">
+        <h3 id="agent-modal-title" class="font-extrabold text-base">إضافة موظف دعم جديد</h3>
+        <input id="modal-agent-id" type="hidden" />
+        <div>
+          <label class="block text-xs font-bold mb-1">اسم الموظف</label>
+          <input id="modal-agent-name" type="text" placeholder="مثال: ياسمين طارق" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold mb-1">الدور والقسم</label>
+          <input id="modal-agent-role" type="text" placeholder="مثال: أخصائي خدمة عملاء — قسم الطلبات" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs" />
+        </div>
+        <div class="flex justify-end gap-2">
+          <button onclick="closeAgentModal()" class="px-4 py-2 text-xs font-bold text-[#57534E] dark:text-[#9CAFA2]">إلغاء</button>
+          <button onclick="saveAgentModal()" class="px-5 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">حفظ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin KB Modal -->
+    <div id="admin-kb-modal" class="fixed inset-0 z-50 hidden bg-black/65 backdrop-blur-xs flex items-center justify-center p-4">
+      <div class="w-full max-w-md bg-white dark:bg-[#1E2B22] rounded-3xl p-6 border border-[#E5E0D8] dark:border-[#2F4235] space-y-4 shadow-2xl animate-slide-up">
+        <h3 id="kb-modal-title" class="font-extrabold text-base">إضافة معلومة لقاعدة المعرفة</h3>
+        <input id="modal-kb-id" type="hidden" />
+        <div>
+          <label class="block text-xs font-bold mb-1">التصنيف</label>
+          <select id="modal-kb-cat" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs">
+            <option value="سياسات الشحن والاسترجاع">سياسات الشحن والاسترجاع</option>
+            <option value="المنتجات">المنتجات</option>
+            <option value="الأسئلة الشائعة FAQ">الأسئلة الشائعة FAQ</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold mb-1">العنوان / الكلمات المفتاحية</label>
+          <input id="modal-kb-title" type="text" placeholder="مثال: سياسة الضمان الذهبي" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold mb-1">الإجابة الرسمية المعتمدة للمساعد الذكي</label>
+          <textarea id="modal-kb-answer" rows="3" placeholder="اكتب الرد الذي سيقدمه دليلي للعملاء..." class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs"></textarea>
+        </div>
+        <div class="flex justify-end gap-2">
+          <button onclick="closeKbModal()" class="px-4 py-2 text-xs font-bold text-[#57534E] dark:text-[#9CAFA2]">إلغاء</button>
+          <button onclick="saveKbModal()" class="px-5 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">حفظ في قاعدة المعرفة</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Ticket Detail Modal -->
+    <div id="admin-ticket-modal" class="fixed inset-0 z-50 hidden bg-black/65 backdrop-blur-xs flex items-center justify-center p-4">
+      <div class="w-full max-w-lg bg-white dark:bg-[#1E2B22] rounded-3xl p-6 border border-[#E5E0D8] dark:border-[#2F4235] space-y-4 shadow-2xl animate-slide-up">
+        <div class="flex items-center justify-between border-b border-[#E5E0D8] dark:border-[#2F4235] pb-3">
+          <h3 id="atm-title" class="font-extrabold text-base">تفاصيل التذكرة</h3>
+          <button onclick="document.getElementById('admin-ticket-modal').classList.add('hidden')" class="text-[#57534E] dark:text-[#9CAFA2] font-bold">✕</button>
+        </div>
+        <div id="atm-body" class="space-y-3 text-xs max-h-80 overflow-y-auto custom-scroll"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    // =========================================================================
+    // SHARED STATE & LOCALSTORAGE LIVE SYNC
+    // =========================================================================
+    const STORAGE_KEY = 'dalily_compass_prod_v4';
+
+    function getInitialState() {
+      return {
+        currentRole: 'customer',
+        currentCustomerScreen: 'auth',
+        user: {
+          name: 'سلمى محمود',
+          identifier: '01012345678',
+          tier: 'عضو ذهبي',
+          isGuest: false,
+          lang: 'ar'
+        },
+        settings: {
+          welcomeMessage: 'أهلاً بك في دليلي! اسألني عن منتجاتنا، تتبع طلبك، أو طلبات الاسترجاع والاستبدال.',
+          confidence: 75,
+          autoCloseHours: 48,
+          autoEscalateAngry: true
+        },
+        totalChatsCount: 1428,
+        adminChartMode: 'bars',
+        selectedChartDayIndex: 5,
+        weeklyChartData: [
+          { day: 'السبت', total: 165, bot: 142, escalated: 23 },
+          { day: 'الأحد', total: 190, bot: 162, escalated: 28 },
+          { day: 'الإثنين', total: 215, bot: 184, escalated: 31 },
+          { day: 'الثلاثاء', total: 180, bot: 153, escalated: 27 },
+          { day: 'الأربعاء', total: 240, bot: 205, escalated: 35 },
+          { day: 'الخميس', total: 268, bot: 228, escalated: 40 },
+          { day: 'الجمعة', total: 170, bot: 146, escalated: 24 }
+        ],
+        selectedOrderId: '#ORD-9482',
+        selectedTicketId: '#TKT-2041',
+        ticketFilter: 'all',
+        complaintPhotoDataUrl: '',
+        pendingChatAttachment: null,
+        selectedRating: 5,
+        ratings: [5, 5, 4, 5, 5],
+        orders: [
+          {
+            id: '#ORD-9482',
+            status: 'في الطريق إليك',
+            items: 'سماعة لاسلكية برو ANC + شاحن سريع 65W',
+            total: '1,850 ج.م',
+            courier: 'كابتن محمود حسن (01122334455)',
+            eta: 'اليوم، 5:00 م',
+            steps: [
+              { title: 'تم التأكيد', time: 'أمس • 10:15 ص', done: true },
+              { title: 'جاري التجهيز والشحن', time: 'أمس • 06:40 م', done: true },
+              { title: 'في الطريق إليك', time: 'اليوم • 11:20 ص', done: true, active: true },
+              { title: 'تم التسليم', time: 'متوقع 5:00 م', done: false }
+            ]
+          },
+          {
+            id: '#ORD-9310',
+            status: 'تم التسليم',
+            items: 'ساعة ذكية ألترا GT - إصدار التيتانيوم',
+            total: '2,400 ج.م',
+            courier: 'أرامكس إكسبريس',
+            eta: 'تم التسليم 19 نوفمبر',
+            steps: [
+              { title: 'تم التأكيد', time: '17 نوفمبر', done: true },
+              { title: 'جاري التجهيز والشحن', time: '18 نوفمبر', done: true },
+              { title: 'في الطريق إليك', time: '19 نوفمبر', done: true },
+              { title: 'تم التسليم', time: '19 نوفمبر • 3:20 م', done: true, active: true }
+            ]
+          }
+        ],
+        products: [
+          { name: 'سماعة لاسلكية برو ANC', price: '1,450 ج.م', desc: 'عزل ضوضاء نشط وبطارية 36 ساعة', icon: '🎧' },
+          { name: 'ساعة ذكية ألترا GT', price: '2,400 ج.م', desc: 'شاشة AMOLED ومقاومة للماء IP68', icon: '⌚' },
+          { name: 'حقيبة لابتوب جلد فاخر', price: '1,150 ج.م', desc: 'مبطنة بالكامل ومقاومة للصدمات', icon: '💼' }
+        ],
+        knowledgeBase: [
+          {
+            id: 1,
+            category: 'سياسات الشحن والاسترجاع',
+            keywords: ['استرجاع', 'استبدال', 'رجع', 'بدل'],
+            title: 'سياسة الاسترجاع والاستبدال (14 يوم)',
+            answer: 'يمكنك استرجاع أو استبدال أي منتج مجاناً خلال 14 يوماً من تاريخ الاستلام بشرط وجوده بحالته الأصلية وتغليفه.'
+          },
+          {
+            id: 2,
+            category: 'سياسات الشحن والاسترجاع',
+            keywords: ['شحن', 'توصيل', 'مدة', 'مصاريف'],
+            title: 'مدة وتكلفة الشحن والتوصيل',
+            answer: 'التوصيل يستغرق 24-48 ساعة داخل القاهرة والجيزة، ومن 2 إلى 4 أيام لباقي المحافظات. الشحن مجاني للطلبات فوق 1,000 ج.م.'
+          },
+          {
+            id: 3,
+            category: 'المنتجات',
+            keywords: ['ضمان', 'صيانة', 'سماعة', 'ساعة'],
+            title: 'الضمان الذهبي على الإلكترونيات',
+            answer: 'جميع السماعات والساعات الذكية مشمولة بضمان استبدال فوري لمدة 12 شهراً ضد عيوب الصناعة.'
+          },
+          {
+            id: 4,
+            category: 'الأسئلة الشائعة FAQ',
+            keywords: ['دفع', 'فيزا', 'كاش', 'تقسيط'],
+            title: 'طرق الدفع المتاحة',
+            answer: 'نقبل الدفع نقداً عند الاستلام، البطاقات البنكية (فيزا / ماستركارد)، والمحافظ الإلكترونية.'
+          }
+        ],
+        tickets: [
+          {
+            id: '#TKT-2041',
+            customer: 'سلمى محمود',
+            orderId: '#ORD-9482',
+            subject: 'تأخر الشحن للطلب #ORD-9482',
+            sentiment: 'غاضب/عاجل 🔴',
+            priority: 'عاجل',
+            status: 'مفتوحة',
+            assignedAgent: 'أحمد كمال',
+            sla: '12 دقيقة متبقية',
+            createdAt: 'منذ 15 دقيقة',
+            photoUrl: '',
+            botContext: [
+              'العميل: أوردري #ORD-9482 اتأخر ومحدش كلمني!',
+              'دليلي: أعتذر لك بشدة على التأخير، تم تصعيد طلبك فوراً لموظف دعم مختص.'
+            ],
+            statusUpdates: ['تم فتح التذكرة وتصعيدها تلقائياً (Sentiment: غاضب/عاجل 🔴)'],
+            messages: [
+              { sender: 'agent', name: 'أحمد كمال', text: 'أهلاً بك أستاذة سلمى، أعتذر عن التأخير. تواصلت مع شركة الشحن والمندوب هيكون عند حضرتك الساعة 5 مساءً بإذن الله.', time: '12:38 م' }
+            ]
+          },
+          {
+            id: '#TKT-2038',
+            customer: 'سلمى محمود',
+            orderId: '#ORD-9310',
+            subject: 'طلب استبدال الساعة الذكية #ORD-9310',
+            sentiment: 'محايد',
+            priority: 'مرتفع',
+            status: 'قيد المراجعة',
+            assignedAgent: 'سارة علي',
+            sla: '45 دقيقة متبقية',
+            createdAt: 'أمس',
+            photoUrl: '',
+            botContext: [
+              'العميل: عايزة أبدل لون الساعة في طلب #ORD-9310',
+              'دليلي: تم فتح تذكرة استبدال مجانية وتحويلها للقسم المختص.'
+            ],
+            statusUpdates: ['تم استلام الطلب وجاري إصدار بوليصة الاستبدال'],
+            messages: [
+              { sender: 'agent', name: 'سارة علي', text: 'تم إصدار بوليصة الاستبدال المجانية، سيصلك المندوب غداً.', time: 'أمس 4:15 م' }
+            ]
+          }
+        ],
+        conversationsHistory: [
+          {
+            id: 'CONV-101',
+            title: 'تتبع الطلب #ORD-9482 والاسترجاع',
+            date: 'اليوم',
+            summary: 'استفسار عن موعد وصول السماعة اللاسلكية وسياسة الاسترجاع المجاني',
+            transcript: [
+              'دليلي: أهلاً بك في دليلي! اسألني عن منتجاتنا، تتبع طلبك، أو طلبات الاسترجاع والاستبدال.',
+              'سلمى محمود: تتبع طلبي #ORD-9482',
+              'دليلي: طلبك #ORD-9482 قيد التوصيل اليوم مع كابتن محمود حسن (01122334455).'
+            ]
+          },
+          {
+            id: 'CONV-100',
+            title: 'استفسار عن الضمان الذهبي',
+            date: '19 نوفمبر',
+            summary: 'تم الحل ذاتياً بواسطة المساعد الذكي • التقييم: ⭐⭐⭐⭐⭐',
+            transcript: [
+              'سلمى محمود: إيه مدة ضمان السماعة؟',
+              'دليلي: جميع السماعات والساعات الذكية مشمولة بضمان استبدال فوري لمدة 12 شهراً ضد عيوب الصناعة.'
+            ]
+          }
+        ],
+        agents: [
+          { id: 1, name: 'أحمد كمال', role: 'أخصائي دعم أول — قسم الشكاوى', active: true, ticketsCount: 18, csat: '4.9 ★' },
+          { id: 2, name: 'سارة علي', role: 'أخصائية استرجاع واستبدال', active: true, ticketsCount: 15, csat: '4.8 ★' },
+          { id: 3, name: 'محمود حسن', role: 'أخصائي خدمة عملاء', active: true, ticketsCount: 12, csat: '4.7 ★' },
+          { id: 4, name: 'ندى حسن', role: 'مشرف دعم فني', active: true, ticketsCount: 14, csat: '4.9 ★' }
+        ],
+        notifications: [
+          { id: 1, ticketId: '#TKT-2041', text: 'رد أحمد كمال على تذكرتك #TKT-2041', time: 'منذ 10 دقائق', unread: true },
+          { id: 2, ticketId: null, text: 'شحنتك #ORD-9482 خرجت للتوصيل مع كابتن محمود', time: 'منذ 25 دقيقة', unread: true }
+        ]
+      };
+    }
+
+    let APP_STATE = loadState();
+    let isVoiceRecording = false;
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          return Object.assign(getInitialState(), JSON.parse(raw));
+        }
+      } catch (e) {}
+      return getInitialState();
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(APP_STATE));
+      } catch (e) {}
+    }
+
+    function resetDemoStorage() {
+      localStorage.removeItem(STORAGE_KEY);
+      APP_STATE = getInitialState();
+      saveState();
+      initCustomerChatWelcome();
+      renderChatContextKb();
+      updateAllBadges();
+      renderTrackOrderScreen();
+      renderCustomerTickets();
+      renderCustomerNotifications();
+      renderAgentDashboard();
+      renderAdminDashboard();
+      showToast('تمت إعادة ضبط البيانات التجريبية بنجاح ✓');
+    }
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === STORAGE_KEY) {
+        APP_STATE = loadState();
+        updateAllBadges();
+        renderChatContextKb();
+        renderCustomerTickets();
+        renderTicketDetailsScreen();
+        renderCustomerNotifications();
+        renderAgentDashboard();
+        renderAdminDashboard();
+      }
+    });
+
+    // Reusable Compact Dalily Compass SVG (38x38px) for Chat Avatars
+    function getCompactCompassAvatarHtml() {
+      return `
+        <div class="w-[38px] h-[38px] rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] flex items-center justify-center shrink-0 shadow-2xs">
+          <svg class="w-[34px] h-[34px]" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <circle cx="50" cy="50" r="44" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3"/>
+            <line x1="50" y1="9" x2="50" y2="16" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="3" stroke-linecap="round"/>
+            <line x1="50" y1="84" x2="50" y2="91" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3" stroke-linecap="round"/>
+            <line x1="9" y1="50" x2="16" y2="50" class="stroke-[#059669] dark:stroke-[#82E0A6]" stroke-width="3" stroke-linecap="round"/>
+            <line x1="84" y1="50" x2="91" y2="50" class="stroke-[#D97706] dark:stroke-[#F2A93B]" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="31" class="stroke-[#E5E0D8] dark:stroke-[#2F4235]" stroke-width="2"/>
+            <g transform="rotate(45 50 50)">
+              <polygon points="50,15 59,50 41,50" class="fill-[#D97706] dark:fill-[#F2A93B]"/>
+              <polygon points="50,85 59,50 41,50" class="fill-[#059669] dark:fill-[#82E0A6]"/>
+            </g>
+            <circle cx="50" cy="50" r="6" class="fill-white dark:fill-[#121A14] stroke-[#1C1917] dark:stroke-[#F1F5F2]" stroke-width="2.2"/>
+          </svg>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // INITIALIZATION & THEME / NAVIGATION HELPERS
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      initCustomerChatWelcome();
+      renderChatContextKb();
+      updateAllBadges();
+      renderTrackOrderScreen();
+      renderCustomerTickets();
+      renderCustomerHistory();
+      renderCustomerNotifications();
+      renderAgentDashboard();
+      renderAdminDashboard();
+
+      switchRoleView('customer');
+      goCustomerScreen('auth');
+    });
+
+    function showToast(msg) {
+      const banner = document.getElementById('toast-banner');
+      document.getElementById('toast-message').textContent = msg;
+      banner.classList.remove('hidden');
+      setTimeout(() => banner.classList.add('hidden'), 2800);
+    }
+
+    function toggleAppTheme() {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      renderAdminVolumeChart();
+      showToast(isDark ? 'تم تفعيل الوضع الليلي 🌙' : 'تم تفعيل الوضع النهاري ☀️');
+    }
+
+    function updateAllBadges() {
+      const unreadNotifs = APP_STATE.notifications.filter(n => n.unread).length;
+      const openTickets = APP_STATE.tickets.filter(t => t.status !== 'مغلقة').length;
+
+      const bellBadge = document.getElementById('mobile-bell-badge');
+      if (bellBadge) {
+        bellBadge.textContent = unreadNotifs;
+        bellBadge.classList.toggle('hidden', unreadNotifs === 0);
+      }
+      const drawerNotif = document.getElementById('drawer-notifs-badge');
+      if (drawerNotif) drawerNotif.textContent = unreadNotifs;
+
+      const drawerTkt = document.getElementById('drawer-tickets-badge');
+      if (drawerTkt) drawerTkt.textContent = openTickets;
+
+      const ordersCountEl = document.getElementById('sidebar-orders-count');
+      if (ordersCountEl) ordersCountEl.textContent = APP_STATE.orders.length;
+
+      const chatsKpi = document.getElementById('admin-kpi-chats');
+      if (chatsKpi) chatsKpi.textContent = APP_STATE.totalChatsCount.toLocaleString('en-US');
+
+      const avg = (APP_STATE.ratings.reduce((a, b) => a + b, 0) / APP_STATE.ratings.length).toFixed(1);
+      const csatEl = document.getElementById('admin-kpi-csat');
+      if (csatEl) csatEl.textContent = `${avg} / 5`;
+    }
+
+    function switchRoleView(role) {
+      APP_STATE.currentRole = role;
+      ['customer', 'agent', 'admin'].forEach(r => {
+        document.getElementById(`role-view-${r}`).classList.toggle('hidden', r !== role);
+      });
+      if (role === 'agent') renderAgentDashboard();
+      if (role === 'admin') renderAdminDashboard();
+    }
+
+    function logoutToLoginScreen() {
+      toggleMobileDrawer(false);
+      switchRoleView('customer');
+      goCustomerScreen('auth');
+      showToast('تم تسجيل الخروج بنجاح');
+    }
+
+    // =========================================================================
+    // ROLE 1: CUSTOMER WIDESCREEN NAVIGATION & AUTH
+    // =========================================================================
+    function toggleMobileDrawer(open) {
+      const backdrop = document.getElementById('mobile-drawer-backdrop');
+      const drawer = document.getElementById('mobile-drawer');
+      if (backdrop) backdrop.classList.toggle('hidden', !open);
+      if (drawer) drawer.classList.toggle('hidden', !open);
+      if (open) syncSidebarUserCard();
+    }
+
+    function syncSidebarUserCard() {
+      const nameEl = document.getElementById('drawer-user-name');
+      const subEl = document.getElementById('drawer-user-sub');
+      const tierEl = document.getElementById('sidebar-user-tier');
+      const avatarEl = document.getElementById('sidebar-user-avatar');
+      if (nameEl) nameEl.textContent = APP_STATE.user.name;
+      if (subEl) subEl.textContent = APP_STATE.user.identifier;
+      if (tierEl) tierEl.textContent = APP_STATE.user.tier || 'عضو ذهبي';
+      if (avatarEl) avatarEl.textContent = (APP_STATE.user.name || 'س').trim().charAt(0);
+    }
+
+    function drawerNavigate(screenName) {
+      toggleMobileDrawer(false);
+      goCustomerScreen(screenName);
+    }
+
+    const CUSTOMER_SCREEN_TITLES = {
+      home: 'المحادثة الذكية — دليلي',
+      track: 'تتبع حالة الطلبات',
+      complaint: 'تقديم شكوى أو طلب استرجاع',
+      tickets: 'تذاكر الدعم الفني',
+      'ticket-details': 'تفاصيل التذكرة ومحادثة الموظف',
+      history: 'سجل المحادثات والتصدير',
+      rate: 'تقييم جودة الخدمة',
+      notifications: 'مركز الإشعارات والتنبيهات',
+      profile: 'الإعدادات والملف الشخصي'
+    };
+
+    function goCustomerScreen(screenName) {
+      APP_STATE.currentCustomerScreen = screenName;
+      const authView = document.getElementById('customer-auth-view');
+      const appShell = document.getElementById('customer-app-shell');
+
+      if (screenName === 'splash' || screenName === 'auth') {
+        authView.classList.remove('hidden');
+        appShell.classList.add('hidden');
+        return;
+      }
+
+      authView.classList.add('hidden');
+      appShell.classList.remove('hidden');
+      syncSidebarUserCard();
+
+      const topTitle = document.getElementById('cust-topbar-title');
+      if (topTitle && CUSTOMER_SCREEN_TITLES[screenName]) {
+        topTitle.textContent = CUSTOMER_SCREEN_TITLES[screenName];
+      }
+
+      document.querySelectorAll('.cscreen-view').forEach(el => el.classList.add('hidden'));
+      const targetScreen = document.getElementById(`cscreen-${screenName}`);
+      if (targetScreen) targetScreen.classList.remove('hidden');
+
+      document.querySelectorAll('.cnav-btn').forEach(btn => {
+        const isActive = btn.dataset.cnav === screenName;
+        btn.className = isActive
+          ? 'cnav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold transition-colors'
+          : 'cnav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B] transition-colors';
+      });
+
+      if (screenName === 'home') renderChatContextKb();
+      if (screenName === 'track') renderTrackOrderScreen();
+      if (screenName === 'tickets') renderCustomerTickets();
+      if (screenName === 'ticket-details') renderTicketDetailsScreen();
+      if (screenName === 'history') renderCustomerHistory();
+      if (screenName === 'notifications') renderCustomerNotifications();
+      if (screenName === 'profile') {
+        document.getElementById('profile-user-name').textContent = APP_STATE.user.name;
+        document.getElementById('profile-user-contact').textContent = APP_STATE.user.identifier;
+        document.getElementById('profile-edit-name').value = APP_STATE.user.name;
+        document.getElementById('profile-edit-contact').value = APP_STATE.user.identifier;
+        document.getElementById('profile-avatar-circle').textContent = (APP_STATE.user.name || 'س').trim().charAt(0);
+      }
+    }
+
+    function toggleCustAuthMode(mode) {
+      const isReg = mode === 'register';
+      document.getElementById('c-reg-name-wrap').classList.toggle('hidden', !isReg);
+      document.getElementById('c-auth-title').textContent = isReg ? 'إنشاء حساب جديد' : 'أهلاً بك في دليلي';
+      document.getElementById('c-auth-tab-login').className = !isReg
+        ? 'py-2.5 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] transition-colors'
+        : 'py-2.5 rounded-xl text-[#57534E] dark:text-[#9CAFA2] transition-colors';
+      document.getElementById('c-auth-tab-reg').className = isReg
+        ? 'py-2.5 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] transition-colors'
+        : 'py-2.5 rounded-xl text-[#57534E] dark:text-[#9CAFA2] transition-colors';
+    }
+
+    function sendDemoOtp() {
+      document.getElementById('c-auth-step-otp').classList.remove('hidden');
+      showToast('تم إرسال رمز التحقق (OTP): 4829');
+    }
+
+    function completeCustomerLogin(asGuest) {
+      APP_STATE.user.isGuest = asGuest;
+      if (asGuest) {
+        APP_STATE.user.name = 'ضيف دليلي';
+        APP_STATE.user.identifier = 'تصفح كضيف';
+        APP_STATE.user.tier = 'زائر';
+      } else {
+        const regName = document.getElementById('c-reg-name').value.trim();
+        APP_STATE.user.name = regName || 'سلمى محمود';
+        APP_STATE.user.identifier = document.getElementById('c-login-identifier').value.trim() || '01012345678';
+        APP_STATE.user.tier = 'عضو ذهبي';
+      }
+      syncSidebarUserCard();
+      saveState();
+      switchRoleView('customer');
+      goCustomerScreen('home');
+      showToast(`أهلاً بك يا ${APP_STATE.user.name}`);
+    }
+
+    function quickDemoLogin(role) {
+      toggleMobileDrawer(false);
+      if (role === 'customer') {
+        completeCustomerLogin(false);
+      } else if (role === 'agent') {
+        switchRoleView('agent');
+        showToast('تم الدخول إلى لوحة موظف الدعم (أحمد كمال)');
+      } else if (role === 'admin') {
+        switchRoleView('admin');
+        showToast('تم الدخول إلى لوحة تحكم الأدمن');
+      }
+    }
+
+    // =========================================================================
+    // SCREEN 1: HOME AI CHAT + DALILY COMPASS AVATARS + RICH CARDS
+    // =========================================================================
+    function renderChatContextKb() {
+      const container = document.getElementById('chat-context-kb-list');
+      if (!container) return;
+      container.innerHTML = APP_STATE.knowledgeBase.map(kb => `
+        <button type="button" onclick="sendCustQuickReply('${kb.title.replace(/'/g, '')}')"
+          class="w-full text-right p-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] transition-colors">
+          <span class="block font-extrabold text-[#1C1917] dark:text-[#F1F5F2]">${kb.title}</span>
+          <span class="block text-[10px] text-[#57534E] dark:text-[#9CAFA2] truncate mt-0.5">${kb.answer}</span>
+        </button>
+      `).join('');
+    }
+
+    function initCustomerChatWelcome() {
+      const feed = document.getElementById('cust-chat-feed');
+      feed.innerHTML = '';
+      appendCustBotBubble(APP_STATE.settings.welcomeMessage, '', false);
+    }
+
+    function appendCustUserBubble(text) {
+      const feed = document.getElementById('cust-chat-feed');
+      const div = document.createElement('div');
+      div.className = 'flex justify-end animate-slide-up';
+      div.innerHTML = `
+        <div class="max-w-[75%] px-4 py-3 rounded-2xl rounded-tl-sm bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-semibold text-xs sm:text-sm leading-relaxed shadow-xs">
+          ${text}
+        </div>
+      `;
+      feed.appendChild(div);
+      feed.parentElement.scrollTop = feed.parentElement.scrollHeight;
+    }
+
+    function appendCustBotBubble(text, extraHtml = '', askFollowUp = true) {
+      const feed = document.getElementById('cust-chat-feed');
+      const wrapper = document.createElement('div');
+      wrapper.className = 'flex items-start gap-3 animate-slide-up max-w-[85%]';
+
+      const followUpHtml = askFollowUp ? `
+        <div class="pt-2.5 mt-2 border-t border-[#E5E0D8] dark:border-[#2F4235] space-y-2">
+          <p class="text-[11px] font-bold text-[#57534E] dark:text-[#9CAFA2]">في أي استفسارات تانية؟</p>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" onclick="sendCustQuickReply('عروض المنتجات')" class="px-3 py-1 rounded-full text-[11px] font-bold border border-[#059669]/40 dark:border-[#2F4235] text-[#059669] dark:text-[#F1F5F2]">نعم، عرض المنتجات</button>
+            <button type="button" onclick="goCustomerScreen('rate')" class="px-3 py-1 rounded-full text-[11px] font-bold bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6]">إنهاء وتقييم الخدمة ⭐</button>
+          </div>
+        </div>
+      ` : '';
+
+      wrapper.innerHTML = `
+        ${getCompactCompassAvatarHtml()}
+        <div class="flex-1 px-4 py-3.5 rounded-2xl rounded-tr-sm bg-white dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs sm:text-sm leading-relaxed shadow-2xs space-y-2.5">
+          <div>${text}</div>
+          ${extraHtml || ''}
+          ${followUpHtml}
+        </div>
+      `;
+      feed.appendChild(wrapper);
+      feed.parentElement.scrollTop = feed.parentElement.scrollHeight;
+    }
+
+    function showCustTyping() {
+      const feed = document.getElementById('cust-chat-feed');
+      if (document.getElementById('cust-typing-bubble')) return;
+      const div = document.createElement('div');
+      div.id = 'cust-typing-bubble';
+      div.className = 'flex items-center gap-3';
+      div.innerHTML = `
+        ${getCompactCompassAvatarHtml()}
+        <div class="flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-white dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] w-fit">
+          <span class="w-2 h-2 rounded-full bg-[#059669] dark:bg-[#82E0A6] typing-dot"></span>
+          <span class="w-2 h-2 rounded-full bg-[#059669] dark:bg-[#82E0A6] typing-dot"></span>
+          <span class="w-2 h-2 rounded-full bg-[#059669] dark:bg-[#82E0A6] typing-dot"></span>
+        </div>
+      `;
+      feed.appendChild(div);
+      feed.parentElement.scrollTop = feed.parentElement.scrollHeight;
+    }
+
+    function hideCustTyping() {
+      const el = document.getElementById('cust-typing-bubble');
+      if (el) el.remove();
+    }
+
+    function sendCustQuickReply(text) {
+      appendCustUserBubble(text);
+      processCustomerChatIntent(text);
+    }
+
+    function handleCustChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('cust-chat-input');
+      const text = input.value.trim();
+      const attachment = APP_STATE.pendingChatAttachment;
+
+      if (!text && !attachment) return;
+      input.value = '';
+
+      let composedBubble = text;
+      if (attachment) {
+        composedBubble = `${text ? text + '<br/>' : ''}📎 <span class="font-en underline">${attachment.name}</span>`;
+        clearPendingChatAttachment();
+      }
+
+      appendCustUserBubble(composedBubble);
+      processCustomerChatIntent(text || `شكوى: مرفق صورة (${attachment.name})`);
+    }
+
+    function toggleVoiceRecording() {
+      isVoiceRecording = !isVoiceRecording;
+      document.getElementById('voice-recording-bar').classList.toggle('hidden', !isVoiceRecording);
+    }
+
+    function cancelVoiceRecording() {
+      isVoiceRecording = false;
+      document.getElementById('voice-recording-bar').classList.add('hidden');
+    }
+
+    function finishVoiceRecording() {
+      cancelVoiceRecording();
+      appendCustUserBubble('🎤 رسالة صوتية (0:04): "أوردري #ORD-9482 وصل فين دلوقتي؟"');
+      processCustomerChatIntent('تتبع طلبي #ORD-9482');
+    }
+
+    function triggerChatFilePicker() {
+      document.getElementById('chat-hidden-file').click();
+    }
+
+    function handleChatFileSelected(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        APP_STATE.pendingChatAttachment = { name: file.name, dataUrl: ev.target.result };
+        const bar = document.getElementById('chat-attachment-preview-bar');
+        const thumb = document.getElementById('chat-attachment-thumb');
+        const icon = document.getElementById('chat-attachment-icon');
+        document.getElementById('chat-attachment-name').textContent = file.name;
+        if (file.type.startsWith('image/')) {
+          thumb.src = ev.target.result;
+          thumb.classList.remove('hidden');
+          icon.classList.add('hidden');
+        } else {
+          thumb.classList.add('hidden');
+          icon.classList.remove('hidden');
+        }
+        bar.classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearPendingChatAttachment() {
+      APP_STATE.pendingChatAttachment = null;
+      const bar = document.getElementById('chat-attachment-preview-bar');
+      if (bar) bar.classList.add('hidden');
+      const fileInput = document.getElementById('chat-hidden-file');
+      if (fileInput) fileInput.value = '';
+    }
+
+    function processCustomerChatIntent(userText) {
+      showCustTyping();
+      APP_STATE.totalChatsCount += 1;
+      APP_STATE.weeklyChartData[5].total += 1;
+      APP_STATE.weeklyChartData[5].bot += 1;
+      saveState();
+      updateAllBadges();
+
+      const lower = userText.toLowerCase();
+
+      setTimeout(() => {
+        hideCustTyping();
+
+        // Direct Human Escalation ("كلم موظف")
+        if (lower.includes('موظف') || lower.includes('بشري') || lower.includes('حد')) {
+          const newId = `#TKT-${Math.floor(2042 + Math.random() * 90)}`;
+          const newTicket = {
+            id: newId,
+            customer: APP_STATE.user.name,
+            orderId: '#ORD-9482',
+            subject: 'طلب تواصل مباشر مع موظف دعم',
+            sentiment: 'محايد',
+            priority: 'عاجل',
+            status: 'مفتوحة',
+            assignedAgent: 'أحمد كمال',
+            sla: '10 دقائق متبقية',
+            createdAt: 'الآن',
+            photoUrl: '',
+            botContext: [
+              `العميل: ${userText}`,
+              'دليلي: تم تصعيد المحادثة مباشرة مع نقل كامل السياق لموظف الدعم.'
+            ],
+            statusUpdates: ['تم التصعيد المباشر من المحادثة'],
+            messages: [
+              { sender: 'agent', name: 'أحمد كمال', text: `أهلاً بك يا ${APP_STATE.user.name}، استلمت سياق محادثتك مع دليلي. كيف أقدر أساعدك حالاً؟`, time: 'الآن' }
+            ]
+          };
+          APP_STATE.tickets.unshift(newTicket);
+          APP_STATE.selectedTicketId = newId;
+          saveState();
+          updateAllBadges();
+
+          const handoffCard = `
+            <div class="p-3.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#1E2B22] border border-[#059669]/40 dark:border-[#82E0A6]/40 space-y-2.5">
+              <div class="flex justify-between font-extrabold text-xs">
+                <span class="text-[#059669] dark:text-[#82E0A6]">تم فتح تذكرة وتوصيلك بموظف</span>
+                <span class="font-en">${newId}</span>
+              </div>
+              <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">تم نقل كامل سياق المحادثة إلى <strong>أحمد كمال</strong>.</p>
+              <button type="button" onclick="goCustomerScreen('ticket-details')"
+                class="w-full py-2.5 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">
+                فتح محادثة الموظف المباشرة ←
+              </button>
+            </div>
+          `;
+          appendCustBotBubble('حاضر! فتحت لك تذكرة فورية وحولت كل تفاصيل كلامنا لموظف خدمة العملاء:', handoffCard, false);
+          return;
+        }
+
+        // Complaint & Angry Sentiment Escalation
+        if (lower.includes('شكوى') || lower.includes('مكسور') || lower.includes('تالف') || lower.includes('زعلان') || lower.includes('سيء')) {
+          const newId = `#TKT-${Math.floor(2050 + Math.random() * 90)}`;
+          const newTicket = {
+            id: newId,
+            customer: APP_STATE.user.name,
+            orderId: '#ORD-9482',
+            subject: userText.slice(0, 38),
+            sentiment: 'غاضب/عاجل 🔴',
+            priority: 'عاجل',
+            status: 'مفتوحة',
+            assignedAgent: 'أحمد كمال',
+            sla: '8 دقائق متبقية',
+            createdAt: 'الآن',
+            photoUrl: '',
+            botContext: [
+              `العميل: ${userText}`,
+              'تحليل المشاعر: غاضب/عاجل 🔴 — تم التصعيد التلقائي حسب قواعد النظام.'
+            ],
+            statusUpdates: ['تم فتح تذكرة أولوية قصوى وتنبيه موظف الدعم'],
+            messages: []
+          };
+          APP_STATE.tickets.unshift(newTicket);
+          APP_STATE.selectedTicketId = newId;
+          APP_STATE.notifications.unshift({
+            id: Date.now(),
+            ticketId: newId,
+            text: `تم تسجيل شكواك برقم ${newId} وتنبيه موظف الدعم`,
+            time: 'الآن',
+            unread: true
+          });
+          saveState();
+          updateAllBadges();
+
+          const ticketCard = `
+            <div class="p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 space-y-2.5">
+              <div class="flex justify-between font-extrabold text-xs">
+                <span class="text-rose-500">تم إنشاء تذكرة أولوية قصوى</span>
+                <span class="font-en">${newId}</span>
+              </div>
+              <p class="text-xs">تم إرسال تنبيه عاجل لموظف الدعم لمراجعة شكواك فوراً.</p>
+              <div class="flex gap-2">
+                <button type="button" onclick="goCustomerScreen('ticket-details')" class="flex-1 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">
+                  متابعة التذكرة
+                </button>
+                <button type="button" onclick="goCustomerScreen('complaint')" class="px-3.5 py-2 rounded-xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] font-bold text-xs">
+                  نموذج الشكوى
+                </button>
+              </div>
+            </div>
+          `;
+          appendCustBotBubble('أعتذر لك جداً على التجربة دي! حللت شكواك ورفعتها فوراً كتذكرة عاجلة لفريق الدعم:', ticketCard, false);
+          return;
+        }
+
+        // Order Tracking Rich Card
+        if (lower.includes('تتبع') || lower.includes('أوردر') || lower.includes('طلب') || lower.includes('9482')) {
+          const order = APP_STATE.orders[0];
+          const orderCard = `
+            <div class="p-3.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2.5">
+              <div class="flex justify-between items-center font-extrabold text-xs">
+                <span class="font-en">${order.id}</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#D97706]/15 dark:bg-[#F2A93B]/20 text-[#D97706] dark:text-[#F2A93B]">${order.status}</span>
+              </div>
+              <p class="text-xs font-bold">${order.items}</p>
+              <div class="w-full h-2 rounded-full bg-black/10 dark:bg-[#121A14] overflow-hidden">
+                <div class="h-full rounded-full bg-[#059669] dark:bg-[#82E0A6]" style="width: 75%"></div>
+              </div>
+              <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">المندوب: ${order.courier} • الوصول: ${order.eta}</p>
+              <button type="button" onclick="goCustomerScreen('track')"
+                class="w-full py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">
+                فتح شاشة تتبع الطلب الكاملة ←
+              </button>
+            </div>
+          `;
+          appendCustBotBubble('لقيت طلبك النشط حالياً، وهو في الطريق إليك النهاردة:', orderCard, true);
+          return;
+        }
+
+        // Product Return Rich Card
+        if (lower.includes('استرجاع') || lower.includes('استبدال') || lower.includes('رجع')) {
+          const returnCard = `
+            <div class="p-3.5 rounded-2xl bg-[#F3EFEA] dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2.5">
+              <p class="font-extrabold text-xs text-[#059669] dark:text-[#82E0A6]">الاسترجاع والاستبدال المجاني (14 يوم)</p>
+              <p class="text-xs text-[#57534E] dark:text-[#9CAFA2]">يمكنك رفع طلب استرجاع أو استبدال لأي منتج مستلم خلال 14 يوماً مجاناً.</p>
+              <button type="button" onclick="goCustomerScreen('complaint')"
+                class="w-full py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">
+                بدء طلب استرجاع منتج ←
+              </button>
+            </div>
+          `;
+          appendCustBotBubble('بكل سرور! طلباتك مؤهلة للاسترجاع المجاني:', returnCard, true);
+          return;
+        }
+
+        // Product Catalog Rich Cards
+        if (lower.includes('منتج') || lower.includes('عروض') || lower.includes('سماعة') || lower.includes('ساعة')) {
+          const prodCards = APP_STATE.products.map(p => `
+            <div class="p-3 rounded-xl bg-[#F3EFEA] dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2.5">
+                <span class="text-2xl">${p.icon}</span>
+                <div>
+                  <p class="font-extrabold text-xs">${p.name}</p>
+                  <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">${p.desc}</p>
+                </div>
+              </div>
+              <span class="font-extrabold text-xs text-[#059669] dark:text-[#82E0A6] shrink-0">${p.price}</span>
+            </div>
+          `).join('');
+          appendCustBotBubble('إليك أبرز المنتجات المتوفرة لدينا حالياً:', `<div class="space-y-2">${prodCards}</div>`, true);
+          return;
+        }
+
+        // Search Live Admin Knowledge Base
+        const kbMatch = APP_STATE.knowledgeBase.find(item =>
+          item.keywords.some(kw => lower.includes(kw)) || lower.includes(item.title.toLowerCase())
+        );
+        if (kbMatch) {
+          appendCustBotBubble(`<strong>${kbMatch.title}:</strong><br/>${kbMatch.answer}`, '', true);
+          return;
+        }
+
+        // Clarifying Follow-up
+        appendCustBotBubble(
+          `أهلاً بك! حابب أوضح سؤالك أكتر عشان أساعدك بدقة — هل استفسارك بخصوص واحد من المواضيع دي؟
+          <div class="flex flex-wrap gap-2 pt-2">
+            <button type="button" onclick="sendCustQuickReply('تتبع طلبي')" class="px-3 py-1 rounded-full text-xs font-bold border border-[#059669]/40 dark:border-[#2F4235]">تتبع الطلب</button>
+            <button type="button" onclick="sendCustQuickReply('استرجاع منتج')" class="px-3 py-1 rounded-full text-xs font-bold border border-[#059669]/40 dark:border-[#2F4235]">الاسترجاع</button>
+            <button type="button" onclick="sendCustQuickReply('مدة الشحن')" class="px-3 py-1 rounded-full text-xs font-bold border border-[#059669]/40 dark:border-[#2F4235]">مدة الشحن</button>
+          </div>`,
+          '',
+          false
+        );
+      }, 550);
+    }
+
+    // =========================================================================
+    // SCREEN 2: TRACK ORDER
+    // =========================================================================
+    function renderTrackOrderScreen() {
+      const tabs = document.getElementById('track-order-tabs');
+      tabs.innerHTML = APP_STATE.orders.map(ord => `
+        <button type="button" onclick="selectTrackedOrder('${ord.id}')"
+          class="py-3 px-4 rounded-2xl font-en font-extrabold text-xs border transition-colors ${ord.id === APP_STATE.selectedOrderId
+            ? 'bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] border-transparent'
+            : 'bg-white dark:bg-[#1E2B22] border-[#E5E0D8] dark:border-[#2F4235]'}">
+          ${ord.id}
+        </button>
+      `).join('');
+
+      const order = APP_STATE.orders.find(o => o.id === APP_STATE.selectedOrderId) || APP_STATE.orders[0];
+      const content = document.getElementById('track-order-content');
+      content.innerHTML = `
+        <div class="bg-white dark:bg-[#1E2B22] p-6 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] space-y-5 text-xs">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#E5E0D8] dark:border-[#2F4235] pb-4">
+            <div>
+              <span class="font-en font-extrabold text-base">${order.id}</span>
+              <p class="text-xs text-[#57534E] dark:text-[#9CAFA2] mt-0.5">${order.items}</p>
+            </div>
+            <span class="px-3 py-1.5 rounded-full bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] font-extrabold text-xs">${order.status}</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 py-2">
+            ${order.steps.map(s => `
+              <div class="p-3.5 rounded-2xl border ${s.active
+                ? 'bg-[#059669]/10 dark:bg-[#82E0A6]/10 border-[#059669]/40 dark:border-[#82E0A6]/40'
+                : 'bg-[#F3EFEA] dark:bg-[#26362B] border-[#E5E0D8] dark:border-[#2F4235]'} space-y-1.5">
+                <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-extrabold ${s.done
+                  ? 'bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711]'
+                  : 'bg-black/10 dark:bg-[#121A14] text-[#57534E]'}">
+                  ${s.done ? '✓' : '•'}
+                </div>
+                <p class="font-extrabold ${s.active ? 'text-[#059669] dark:text-[#82E0A6]' : ''}">${s.title}</p>
+                <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">${s.time}</p>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div><span class="block text-[#57534E] dark:text-[#9CAFA2]">مندوب التوصيل:</span><strong class="font-bold">${order.courier}</strong></div>
+            <div><span class="block text-[#57534E] dark:text-[#9CAFA2]">الإجمالي:</span><strong class="font-extrabold">${order.total}</strong></div>
+            <div><span class="block text-[#57534E] dark:text-[#9CAFA2]">موعد الوصول:</span><strong class="text-[#D97706] dark:text-[#F2A93B] font-extrabold">${order.eta}</strong></div>
+          </div>
+
+          <div class="flex justify-end">
+            <button type="button" onclick="reportIssueForOrder('${order.id}')"
+              class="px-5 py-3 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-500 font-extrabold text-xs transition-colors">
+              الإبلاغ عن مشكلة في هذا الطلب
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectTrackedOrder(id) {
+      APP_STATE.selectedOrderId = id;
+      renderTrackOrderScreen();
+    }
+
+    function reportIssueForOrder(orderId) {
+      document.getElementById('comp-order').value = orderId;
+      goCustomerScreen('complaint');
+    }
+
+    // =========================================================================
+    // SCREEN 3: SUBMIT COMPLAINT
+    // =========================================================================
+    function updateComplaintSentimentLive() {
+      const type = document.getElementById('comp-type').value;
+      const desc = document.getElementById('comp-desc').value;
+      const badge = document.getElementById('comp-live-sentiment');
+      const isUrgent = type.includes('تالف') || type.includes('تأخر') || desc.includes('مكسور') || desc.includes('تالف') || desc.includes('غاضب');
+      if (isUrgent) {
+        badge.textContent = 'غاضب/عاجل 🔴';
+        badge.className = 'px-3 py-1.5 rounded-full text-xs font-extrabold bg-rose-500/15 text-rose-500';
+      } else {
+        badge.textContent = 'محايد';
+        badge.className = 'px-3 py-1.5 rounded-full text-xs font-extrabold bg-[#D97706]/15 dark:bg-[#F2A93B]/15 text-[#D97706] dark:text-[#F2A93B]';
+      }
+    }
+
+    function handleComplaintFileUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        APP_STATE.complaintPhotoDataUrl = ev.target.result;
+        showComplaintPhotoPreview(ev.target.result, file.name);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function attachSampleDamagedPhoto() {
+      const svgSample = `data:image/svg+xml;utf8,${encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="180" viewBox="0 0 400 180">
+          <rect width="400" height="180" fill="#1E2B22"/>
+          <rect x="135" y="35" width="130" height="95" rx="12" fill="#F2A93B" fill-opacity="0.22" stroke="#F2A93B" stroke-width="2"/>
+          <path d="M175 35 L200 75 L185 95 L215 130" stroke="#F43F5E" stroke-width="3" fill="none"/>
+          <text x="200" y="158" fill="#F1F5F2" font-family="sans-serif" font-size="13" text-anchor="middle">صورة مرفقة: طرد متضرر #ORD-9482</text>
+        </svg>`
+      )}`;
+      APP_STATE.complaintPhotoDataUrl = svgSample;
+      showComplaintPhotoPreview(svgSample, 'damaged_package_sample.jpg');
+    }
+
+    function showComplaintPhotoPreview(src, label) {
+      document.getElementById('comp-photo-preview').src = src;
+      document.getElementById('comp-photo-preview-wrap').classList.remove('hidden');
+      document.getElementById('comp-upload-label').innerHTML = `<span class="text-[#059669] dark:text-[#82E0A6] font-extrabold">✓ تم إرفاق: ${label}</span>`;
+    }
+
+    function clearComplaintPhoto() {
+      APP_STATE.complaintPhotoDataUrl = '';
+      document.getElementById('comp-photo-preview-wrap').classList.add('hidden');
+      document.getElementById('comp-upload-label').textContent = 'اضغط لرفع صورة المنتج أو الفاتورة';
+    }
+
+    function handleComplaintFormSubmit(e) {
+      e.preventDefault();
+      const type = document.getElementById('comp-type').value;
+      const orderId = document.getElementById('comp-order').value;
+      const desc = document.getElementById('comp-desc').value.trim();
+      const sentimentText = document.getElementById('comp-live-sentiment').textContent;
+      const isAngry = sentimentText.includes('غاضب');
+      const newId = `#TKT-${Math.floor(2060 + Math.random() * 90)}`;
+
+      APP_STATE.tickets.unshift({
+        id: newId,
+        customer: APP_STATE.user.name,
+        orderId,
+        subject: `${type} (${orderId})`,
+        sentiment: sentimentText,
+        priority: isAngry ? 'عاجل' : 'مرتفع',
+        status: 'مفتوحة',
+        assignedAgent: 'أحمد كمال',
+        sla: isAngry ? '10 دقائق متبقية' : '30 دقيقة متبقية',
+        createdAt: 'الآن',
+        photoUrl: APP_STATE.complaintPhotoDataUrl,
+        botContext: [
+          `شكوى مباشرة من التطبيق: ${type}`,
+          `التفاصيل: ${desc}${APP_STATE.complaintPhotoDataUrl ? ' [مرفق صورة]' : ''}`
+        ],
+        statusUpdates: ['تم استلام الشكوى وتوجيهها لموظف الدعم أحمد كمال'],
+        messages: []
+      });
+
+      APP_STATE.selectedTicketId = newId;
+      document.getElementById('comp-desc').value = '';
+      clearComplaintPhoto();
+      saveState();
+      updateAllBadges();
+      showToast(`تم تسجيل الشكوى برقم ${newId} وتنبيه فريق الدعم`);
+      goCustomerScreen('ticket-details');
+    }
+
+    // =========================================================================
+    // SCREENS 4 & 5: MY TICKETS & TICKET DETAILS
+    // =========================================================================
+    function filterCustomerTickets(statusFilter) {
+      APP_STATE.ticketFilter = statusFilter;
+      document.querySelectorAll('.tfilter-pill').forEach(pill => {
+        const active = pill.dataset.tfilter === statusFilter;
+        pill.className = active
+          ? 'tfilter-pill px-4 py-2 rounded-full bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold whitespace-nowrap'
+          : 'tfilter-pill px-4 py-2 rounded-full bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] font-bold whitespace-nowrap';
+      });
+      renderCustomerTickets();
+    }
+
+    function renderCustomerTickets() {
+      const list = document.getElementById('cust-tickets-list');
+      const filtered = APP_STATE.ticketFilter === 'all'
+        ? APP_STATE.tickets
+        : APP_STATE.tickets.filter(t => t.status === APP_STATE.ticketFilter);
+
+      if (filtered.length === 0) {
+        list.innerHTML = `
+          <div class="col-span-full p-8 rounded-3xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] text-center space-y-2 text-xs">
+            <p class="font-extrabold">لا توجد تذاكر في هذا التصنيف حالياً</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = filtered.map(t => `
+        <div class="bg-white dark:bg-[#1E2B22] p-4 rounded-2xl border border-[#E5E0D8] dark:border-[#2F4235] space-y-2.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-en font-extrabold">${t.id}</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold ${t.status === 'مغلقة'
+              ? 'bg-stone-500/15 text-[#57534E]'
+              : 'bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6]'}">${t.status}</span>
+          </div>
+          <p class="font-bold">${t.subject}</p>
+          <div class="flex items-center justify-between text-[10px] text-[#57534E] dark:text-[#9CAFA2]">
+            <span>الموظف: ${t.assignedAgent}</span>
+            <span>${t.sentiment}</span>
+          </div>
+          <div class="flex items-center gap-2 pt-1">
+            <button onclick="openCustomerTicket('${t.id}')"
+              class="flex-1 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-[11px]">
+              فتح المحادثة
+            </button>
+            ${t.status === 'مغلقة'
+              ? `<button onclick="changeTicketStatus('${t.id}', 'مفتوحة')" class="px-3 py-2 rounded-xl bg-[#D97706]/15 dark:bg-[#F2A93B]/20 text-[#D97706] dark:text-[#F2A93B] font-extrabold text-[11px]">إعادة فتح التذكرة</button>`
+              : `<button onclick="changeTicketStatus('${t.id}', 'مغلقة')" class="px-3 py-2 rounded-xl bg-rose-500/15 text-rose-500 font-extrabold text-[11px]">إلغاء التذكرة</button>`
+            }
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openCustomerTicket(id) {
+      APP_STATE.selectedTicketId = id;
+      goCustomerScreen('ticket-details');
+    }
+
+    function changeTicketStatus(id, newStatus) {
+      const t = APP_STATE.tickets.find(item => item.id === id);
+      if (t) {
+        t.status = newStatus;
+        t.statusUpdates.push(`تم تغيير الحالة إلى: ${newStatus} (${new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })})`);
+        saveState();
+        updateAllBadges();
+        renderCustomerTickets();
+        renderAgentDashboard();
+        showToast(`تم تحديث حالة التذكرة ${id} إلى: ${newStatus}`);
+      }
+    }
+
+    function renderTicketDetailsScreen() {
+      const t = APP_STATE.tickets.find(item => item.id === APP_STATE.selectedTicketId) || APP_STATE.tickets[0];
+      document.getElementById('td-header-id').textContent = t.id;
+      document.getElementById('td-header-status').textContent = `${t.status} • ${t.assignedAgent}`;
+
+      const photoHtml = t.photoUrl ? `
+        <div class="rounded-2xl overflow-hidden border border-[#E5E0D8] dark:border-[#2F4235]">
+          <img src="${t.photoUrl}" alt="مرفق الشكوى" class="w-full h-28 object-cover" />
+        </div>
+      ` : '';
+
+      const body = document.getElementById('td-body-scroll');
+      body.innerHTML = `
+        <div class="p-3.5 rounded-2xl bg-[#059669]/10 dark:bg-[#82E0A6]/10 border border-[#059669]/30 dark:border-[#82E0A6]/30 space-y-1">
+          <p class="font-extrabold text-[11px] text-[#059669] dark:text-[#82E0A6]">ملخص المحادثة مع مساعد دليلي:</p>
+          ${t.botContext.map(line => `<p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">• ${line}</p>`).join('')}
+        </div>
+
+        ${photoHtml}
+
+        <div class="px-3.5 py-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] text-[10px] text-[#57534E] dark:text-[#9CAFA2] space-y-0.5">
+          ${t.statusUpdates.map(u => `<div>• ${u}</div>`).join('')}
+        </div>
+
+        <div class="space-y-2.5 pt-1">
+          ${t.messages.length === 0
+            ? '<p class="text-center text-[11px] text-[#57534E] py-4">في انتظار رد موظف الدعم... يمكنك كتابة رسالة إضافية بالأسفل.</p>'
+            : t.messages.map(m => m.sender === 'customer'
+              ? `<div class="flex justify-end"><div class="px-3.5 py-2 rounded-2xl rounded-tl-none bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-semibold max-w-[82%]">${m.text}</div></div>`
+              : `<div class="flex flex-col items-start"><span class="text-[10px] text-[#57534E] mb-0.5">${m.name} • ${m.time}</span><div class="px-3.5 py-2.5 rounded-2xl rounded-tr-none bg-white dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] max-w-[85%]">${m.text}</div></div>`
+            ).join('')
+          }
+        </div>
+      `;
+    }
+
+    function sendCustomerTicketMsg(e) {
+      e.preventDefault();
+      const input = document.getElementById('td-reply-input');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      const t = APP_STATE.tickets.find(item => item.id === APP_STATE.selectedTicketId);
+      if (t) {
+        t.messages.push({ sender: 'customer', text, time: 'الآن' });
+        saveState();
+        renderTicketDetailsScreen();
+        renderAgentDashboard();
+      }
+    }
+
+    function resolveAndRateTicket() {
+      changeTicketStatus(APP_STATE.selectedTicketId, 'مغلقة');
+      goCustomerScreen('rate');
+    }
+
+    // =========================================================================
+    // SCREEN 6: CONVERSATION HISTORY + EXPORT (SUMMARY / JSON)
+    // =========================================================================
+    function renderCustomerHistory() {
+      const query = (document.getElementById('history-search-input')?.value || '').trim().toLowerCase();
+      const filtered = query
+        ? APP_STATE.conversationsHistory.filter(c => c.title.toLowerCase().includes(query) || c.summary.toLowerCase().includes(query))
+        : APP_STATE.conversationsHistory;
+
+      const list = document.getElementById('cust-history-list');
+      list.innerHTML = filtered.map(conv => `
+        <div class="p-4 rounded-2xl bg-white dark:bg-[#1E2B22] border border-[#E5E0D8] dark:border-[#2F4235] space-y-2.5">
+          <div class="flex justify-between font-extrabold">
+            <span>${conv.title}</span>
+            <span class="text-[#059669] dark:text-[#82E0A6] text-[11px]">${conv.date}</span>
+          </div>
+          <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">${conv.summary}</p>
+          <div class="flex justify-between items-center pt-1">
+            <button onclick="openHistoryViewer('${conv.id}')" class="text-[#059669] dark:text-[#82E0A6] font-extrabold underline">عرض نص المحادثة</button>
+            <div class="flex items-center gap-1.5">
+              <button onclick="exportChatTranscript('${conv.id}', 'txt')" class="text-[11px] px-2.5 py-1 rounded-lg bg-[#F3EFEA] dark:bg-[#26362B] font-bold">ملخص</button>
+              <button onclick="exportChatTranscript('${conv.id}', 'json')" class="text-[11px] px-2.5 py-1 rounded-lg bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] font-extrabold">JSON</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openHistoryViewer(convId) {
+      const conv = APP_STATE.conversationsHistory.find(c => c.id === convId) || APP_STATE.conversationsHistory[0];
+      document.getElementById('hvm-title').textContent = conv.title;
+      document.getElementById('hvm-body').innerHTML = conv.transcript.map(line => `
+        <div class="p-2.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235]">${line}</div>
+      `).join('');
+      document.getElementById('history-viewer-modal').classList.remove('hidden');
+    }
+
+    function closeHistoryViewer() {
+      document.getElementById('history-viewer-modal').classList.add('hidden');
+    }
+
+    function exportChatTranscript(convId = 'CONV-101', format = 'json') {
+      const conv = APP_STATE.conversationsHistory.find(c => c.id === convId) || APP_STATE.conversationsHistory[0];
+      let content = '';
+      let mime = 'text/plain;charset=utf-8';
+      let ext = 'txt';
+
+      if (format === 'json') {
+        content = JSON.stringify({
+          platform: 'Dalily (دليلي)',
+          conversationId: conv.id,
+          customer: APP_STATE.user.name,
+          title: conv.title,
+          date: conv.date,
+          summary: conv.summary,
+          messages: conv.transcript
+        }, null, 2);
+        mime = 'application/json;charset=utf-8';
+        ext = 'json';
+      } else {
+        content = `سجل محادثة دليلي\nالعميل: ${APP_STATE.user.name}\nالموضوع: ${conv.title}\nالتاريخ: ${conv.date}\n------------------------------------\n${conv.transcript.join('\n')}`;
+      }
+
+      const ta = document.createElement('textarea');
+      ta.value = content;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+
+      const blob = new Blob([content], { type: mime });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `dalily_${conv.id.toLowerCase()}.${ext}`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast(`تم تصدير المحادثة بصيغة ${ext.toUpperCase()} بنجاح`);
+    }
+
+    // =========================================================================
+    // SCREEN 7: RATE SERVICE
+    // =========================================================================
+    function selectStarRating(stars) {
+      APP_STATE.selectedRating = stars;
+      const labels = ['سيء 😞', 'مقبول 😐', 'جيد 🙂', 'جيد جداً 😊', 'ممتاز جداً! 🤩'];
+      document.getElementById('star-label').textContent = `${labels[stars - 1]} (${stars} / 5)`;
+      document.querySelectorAll('.star-btn').forEach((btn, idx) => {
+        btn.className = idx < stars
+          ? 'star-btn text-[#D97706] dark:text-[#F2A93B] transition-transform hover:scale-125'
+          : 'star-btn text-stone-300 dark:text-[#2F4235] transition-transform hover:scale-125';
+      });
+    }
+
+    function toggleRateTag(btn) {
+      btn.classList.toggle('border-[#82E0A6]');
+      btn.classList.toggle('text-[#059669]');
+      btn.classList.toggle('dark:text-[#82E0A6]');
+    }
+
+    function submitCustomerRating() {
+      APP_STATE.ratings.push(APP_STATE.selectedRating);
+      saveState();
+      updateAllBadges();
+      document.getElementById('rate-comment').value = '';
+      showToast(`شكراً لتقييمك (${APP_STATE.selectedRating} نجوم) ⭐`);
+      goCustomerScreen('home');
+    }
+
+    // =========================================================================
+    // SCREENS 8 & 9: NOTIFICATIONS & PROFILE / SETTINGS
+    // =========================================================================
+    function renderCustomerNotifications() {
+      const list = document.getElementById('cust-notifs-list');
+      if (!list) return;
+      list.innerHTML = APP_STATE.notifications.map(n => `
+        <div onclick="handleNotificationClick(${n.id})"
+          class="p-4 rounded-2xl cursor-pointer transition-colors ${n.unread
+            ? 'bg-white dark:bg-[#1E2B22] border border-[#059669]/40 dark:border-[#82E0A6]/40 shadow-2xs'
+            : 'bg-white/70 dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235]'} flex items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5">
+            ${n.unread ? '<span class="w-2 h-2 rounded-full bg-[#059669] dark:bg-[#82E0A6] shrink-0"></span>' : ''}
+            <span class="font-bold">${n.text}</span>
+          </div>
+          <span class="text-[11px] text-[#57534E] dark:text-[#9CAFA2] shrink-0">${n.time}</span>
+        </div>
+      `).join('');
+    }
+
+    function handleNotificationClick(notifId) {
+      const n = APP_STATE.notifications.find(item => item.id === notifId);
+      if (n) {
+        n.unread = false;
+        saveState();
+        updateAllBadges();
+        if (n.ticketId) {
+          APP_STATE.selectedTicketId = n.ticketId;
+          goCustomerScreen('ticket-details');
+          return;
+        }
+        renderCustomerNotifications();
+      }
+    }
+
+    function markAllNotifsRead() {
+      APP_STATE.notifications.forEach(n => n.unread = false);
+      saveState();
+      updateAllBadges();
+      renderCustomerNotifications();
+      showToast('تم تحديد جميع الإشعارات كمقروءة');
+    }
+
+    function saveCustomerProfileEdits() {
+      const newName = document.getElementById('profile-edit-name').value.trim();
+      const newContact = document.getElementById('profile-edit-contact').value.trim();
+      if (newName) APP_STATE.user.name = newName;
+      if (newContact) APP_STATE.user.identifier = newContact;
+      document.getElementById('profile-user-name').textContent = APP_STATE.user.name;
+      document.getElementById('profile-user-contact').textContent = APP_STATE.user.identifier;
+      document.getElementById('profile-avatar-circle').textContent = APP_STATE.user.name.charAt(0);
+      syncSidebarUserCard();
+      saveState();
+      showToast('تم حفظ تعديلات الملف الشخصي بنجاح ✓');
+    }
+
+    function toggleAppLanguage() {
+      APP_STATE.user.lang = APP_STATE.user.lang === 'ar' ? 'en' : 'ar';
+      document.getElementById('lang-toggle-label').textContent = APP_STATE.user.lang === 'ar' ? 'العربية (RTL)' : 'English / عربي';
+      saveState();
+      showToast('تم تحديث تفضيل اللغة');
+    }
+
+    // =========================================================================
+    // ROLE 2: SUPPORT AGENT WEB DASHBOARD
+    // =========================================================================
+    function renderAgentDashboard() {
+      const searchVal = (document.getElementById('agent-search-input')?.value || '').trim().toLowerCase();
+      const prioFilter = document.getElementById('agent-filter-priority')?.value || 'all';
+      const sentFilter = document.getElementById('agent-filter-sentiment')?.value || 'all';
+
+      let filtered = APP_STATE.tickets;
+      if (prioFilter !== 'all') filtered = filtered.filter(t => t.priority === prioFilter);
+      if (sentFilter !== 'all') filtered = filtered.filter(t => t.sentiment === sentFilter);
+      if (searchVal) {
+        filtered = filtered.filter(t =>
+          t.id.toLowerCase().includes(searchVal) ||
+          t.customer.toLowerCase().includes(searchVal) ||
+          t.subject.toLowerCase().includes(searchVal)
+        );
+      }
+
+      document.getElementById('agent-queue-count').textContent = filtered.length;
+      const queue = document.getElementById('agent-tickets-queue');
+      queue.innerHTML = filtered.map(t => `
+        <div onclick="selectAgentTicket('${t.id}')"
+          class="p-3.5 rounded-2xl bg-white dark:bg-[#1E2B22] border cursor-pointer transition-all space-y-2 ${t.id === APP_STATE.selectedTicketId
+            ? 'border-2 border-[#059669] dark:border-[#82E0A6] shadow-xs'
+            : 'border-[#E5E0D8] dark:border-[#2F4235] hover:border-[#82E0A6]'}">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-en font-extrabold">${t.id}</span>
+            <span class="text-[10px] font-bold">${t.sentiment}</span>
+          </div>
+          <p class="font-extrabold text-xs line-clamp-1">${t.subject}</p>
+          <div class="flex items-center justify-between text-[10px] text-[#57534E] dark:text-[#9CAFA2]">
+            <span>⏱ ${t.sla} • ${t.priority}</span>
+            <span class="px-2 py-0.5 rounded-full bg-[#F3EFEA] dark:bg-[#26362B] text-[#1C1917] dark:text-[#F1F5F2] font-bold">${t.status}</span>
+          </div>
+        </div>
+      `).join('');
+
+      const activeTicket = APP_STATE.tickets.find(t => t.id === APP_STATE.selectedTicketId) || APP_STATE.tickets[0];
+      const order = APP_STATE.orders.find(o => o.id === activeTicket.orderId) || APP_STATE.orders[0];
+
+      const workspace = document.getElementById('agent-ticket-workspace');
+      workspace.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#E5E0D8] dark:border-[#2F4235]">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-en font-extrabold text-base">${activeTicket.id}</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-rose-500/15 text-rose-500">${activeTicket.sentiment}</span>
+            </div>
+            <p class="text-xs text-[#57534E] dark:text-[#9CAFA2] mt-0.5">${activeTicket.subject}</p>
+          </div>
+          <div class="flex items-center gap-2 text-xs">
+            <button onclick="openTransferModal()" class="px-3 py-2 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-extrabold">
+              تحويل لموظف آخر
+            </button>
+            <button onclick="agentCloseTicket('${activeTicket.id}')" class="px-3.5 py-2 rounded-xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold">
+              ✓ إغلاق التذكرة
+            </button>
+          </div>
+        </div>
+
+        <details open class="p-3.5 rounded-2xl bg-[#059669]/10 dark:bg-[#82E0A6]/10 border border-[#059669]/30 dark:border-[#82E0A6]/30 text-xs">
+          <summary class="font-extrabold text-[#059669] dark:text-[#82E0A6] cursor-pointer">
+            سجل محادثة مساعد دليلي قبل التصعيد
+          </summary>
+          <div class="space-y-1 pt-2 mt-2 border-t border-[#059669]/20 dark:border-[#82E0A6]/20">
+            ${activeTicket.botContext.map(c => `<p>• ${c}</p>`).join('')}
+          </div>
+        </details>
+
+        ${activeTicket.photoUrl ? `
+          <div class="rounded-2xl overflow-hidden border border-[#E5E0D8] dark:border-[#2F4235]">
+            <img src="${activeTicket.photoUrl}" alt="مرفق العميل" class="w-full h-32 object-cover" />
+          </div>
+        ` : ''}
+
+        <div class="space-y-2.5 max-h-60 overflow-y-auto custom-scroll p-1">
+          ${activeTicket.messages.map(m => `
+            <div class="p-3 rounded-2xl text-xs ${m.sender === 'agent'
+              ? 'bg-[#059669]/15 dark:bg-[#82E0A6]/15 border border-[#059669]/30 dark:border-[#82E0A6]/30 mr-6'
+              : 'bg-[#F3EFEA] dark:bg-[#26362B] ml-6'}">
+              <div class="flex justify-between font-bold text-[10px] opacity-75 mb-1">
+                <span>${m.sender === 'agent' ? m.name : activeTicket.customer}</span>
+                <span>${m.time}</span>
+              </div>
+              <p>${m.text}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <form onsubmit="handleAgentReplySubmit(event)" class="space-y-2 pt-2 border-t border-[#E5E0D8] dark:border-[#2F4235]">
+          <div class="flex flex-wrap gap-1.5 text-[11px]">
+            <button type="button" onclick="insertCannedReply('أهلاً بحضرتك، تم التواصل مع شركة الشحن وسيصلك المندوب خلال ساعة.')" class="px-2.5 py-1 rounded-lg bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">رد سريع: تأكيد التوصيل</button>
+            <button type="button" onclick="insertCannedReply('تم إصدار بوليصة استبدال مجانية وسيصلك المندوب غداً لاستلام المنتج.')" class="px-2.5 py-1 rounded-lg bg-[#F3EFEA] dark:bg-[#26362B] hover:border-[#82E0A6] border border-[#E5E0D8] dark:border-[#2F4235] font-bold">رد سريع: بوليصة استبدال</button>
+          </div>
+          <div class="flex gap-2">
+            <input id="agent-reply-input" type="text" placeholder="اكتب ردك للعميل..."
+              class="flex-1 px-4 py-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] text-xs focus:outline-none focus:border-[#82E0A6]" />
+            <button type="submit" class="px-5 py-3 rounded-2xl bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] font-extrabold text-xs">
+              إرسال ←
+            </button>
+          </div>
+        </form>
+      `;
+
+      const side = document.getElementById('agent-customer-sidebar');
+      side.innerHTML = `
+        <div class="bg-white dark:bg-[#1E2B22] p-4 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] space-y-3 text-xs">
+          <h3 class="font-extrabold border-b border-[#E5E0D8] dark:border-[#2F4235] pb-2">بيانات العميل والتذكرة</h3>
+          <div class="space-y-1.5">
+            <div class="flex justify-between"><span class="text-[#57534E] dark:text-[#9CAFA2]">العميل:</span><span class="font-extrabold">${activeTicket.customer}</span></div>
+            <div class="flex justify-between"><span class="text-[#57534E] dark:text-[#9CAFA2]">المسؤول:</span><span class="font-bold text-[#059669] dark:text-[#82E0A6]">${activeTicket.assignedAgent}</span></div>
+            <div class="flex justify-between items-center pt-1">
+              <span class="text-[#57534E] dark:text-[#9CAFA2]">حالة التذكرة:</span>
+              <select onchange="changeTicketStatus('${activeTicket.id}', this.value)" class="px-2.5 py-1 rounded-lg bg-[#F3EFEA] dark:bg-[#26362B] border border-[#E5E0D8] dark:border-[#2F4235] font-extrabold text-[11px]">
+                <option value="مفتوحة" ${activeTicket.status === 'مفتوحة' ? 'selected' : ''}>مفتوحة</option>
+                <option value="قيد المراجعة" ${activeTicket.status === 'قيد المراجعة' ? 'selected' : ''}>قيد المراجعة</option>
+                <option value="مغلقة" ${activeTicket.status === 'مغلقة' ? 'selected' : ''}>مغلقة</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#1E2B22] p-4 rounded-3xl border border-[#E5E0D8] dark:border-[#2F4235] space-y-2.5 text-xs">
+          <div class="flex justify-between items-center border-b border-[#E5E0D8] dark:border-[#2F4235] pb-2">
+            <h3 class="font-extrabold">الطلب المرتبط</h3>
+            <span class="font-en font-extrabold text-[#059669] dark:text-[#82E0A6]">${order.id}</span>
+          </div>
+          <p class="font-bold text-[11px]">${order.items}</p>
+          <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">الحالة: <strong class="text-[#D97706] dark:text-[#F2A93B]">${order.status}</strong></p>
+          <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2]">المندوب: ${order.courier}</p>
+        </div>
+      `;
+    }
+
+    function selectAgentTicket(id) {
+      APP_STATE.selectedTicketId = id;
+      renderAgentDashboard();
+    }
+
+    function insertCannedReply(text) {
+      document.getElementById('agent-reply-input').value = text;
+    }
+
+    function handleAgentReplySubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('agent-reply-input');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      const t = APP_STATE.tickets.find(item => item.id === APP_STATE.selectedTicketId);
+      if (t) {
+        t.status = 'قيد المراجعة';
+        t.messages.push({ sender: 'agent', name: 'أحمد كمال', text, time: 'الآن' });
+        APP_STATE.notifications.unshift({
+          id: Date.now(),
+          ticketId: t.id,
+          text: `رد جديد من أحمد كمال على تذكرتك ${t.id}`,
+          time: 'الآن',
+          unread: true
+        });
+        saveState();
+        updateAllBadges();
+        renderAgentDashboard();
+        showToast('تم إرسال الرد وإشعار العميل فوراً ✓');
+      }
+    }
+
+    function openTransferModal() {
+      document.getElementById('transfer-modal').classList.remove('hidden');
+    }
+
+    function closeTransferModal() {
+      document.getElementById('transfer-modal').classList.add('hidden');
+    }
+
+    function confirmTicketTransfer() {
+      const target = document.getElementById('transfer-target-agent').value;
+      const note = document.getElementById('transfer-note').value.trim();
+      const t = APP_STATE.tickets.find(item => item.id === APP_STATE.selectedTicketId);
+      if (t) {
+        t.assignedAgent = target;
+        if (note) t.botContext.push(`ملاحظة تحويل: ${note}`);
+        saveState();
+        closeTransferModal();
+        renderAgentDashboard();
+        showToast(`تم تحويل التذكرة ${t.id} إلى ${target} بنجاح`);
+      }
+    }
+
+    function agentCloseTicket(id) {
+      const t = APP_STATE.tickets.find(item => item.id === id);
+      if (t) {
+        t.status = 'مغلقة';
+        t.statusUpdates.push('تم إغلاق التذكرة وحل المشكلة بواسطة موظف الدعم');
+        APP_STATE.notifications.unshift({
+          id: Date.now(),
+          ticketId: t.id,
+          text: `تم إغلاق تذكرتك ${t.id} — شاركنا تقييمك للخدمة ⭐`,
+          time: 'الآن',
+          unread: true
+        });
+        saveState();
+        updateAllBadges();
+        renderAgentDashboard();
+        showToast(`تم إغلاق التذكرة ${id} وإرسال إشعار التقييم للعميل`);
+      }
+    }
+
+    // =========================================================================
+    // ROLE 3: ADMIN WEB DASHBOARD + INTERACTIVE 7-DAY SVG CHART
+    // =========================================================================
+    function setAdminChartMode(mode) {
+      APP_STATE.adminChartMode = mode;
+      const isBars = mode === 'bars';
+      document.getElementById('chart-mode-bars').className = isBars
+        ? 'px-3 py-1 rounded-lg bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] transition-colors'
+        : 'px-3 py-1 rounded-lg text-[#57534E] dark:text-[#9CAFA2] transition-colors';
+      document.getElementById('chart-mode-line').className = !isBars
+        ? 'px-3 py-1 rounded-lg bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711] transition-colors'
+        : 'px-3 py-1 rounded-lg text-[#57534E] dark:text-[#9CAFA2] transition-colors';
+      renderAdminVolumeChart();
+    }
+
+    function selectAdminChartDay(index) {
+      APP_STATE.selectedChartDayIndex = index;
+      const item = APP_STATE.weeklyChartData[index];
+      if (!item) return;
+      document.getElementById('tt-day-name').textContent = `يوم ${item.day}`;
+      document.getElementById('tt-total').textContent = item.total;
+      document.getElementById('tt-bot').textContent = item.bot;
+      document.getElementById('tt-esc').textContent = item.escalated;
+      renderAdminVolumeChart();
+    }
+
+    function renderAdminVolumeChart() {
+      const svg = document.getElementById('dalily-volume-svg');
+      if (!svg) return;
+
+      const isDark = document.documentElement.classList.contains('dark');
+      const botColor = isDark ? '#82E0A6' : '#059669';
+      const escColor = isDark ? '#F2A93B' : '#D97706';
+      const gridColor = isDark ? '#2F4235' : '#E5E0D8';
+      const labelColor = isDark ? '#9CAFA2' : '#57534E';
+      const textMain = isDark ? '#F1F5F2' : '#1C1917';
+      const highlightBg = isDark ? 'rgba(130, 224, 166, 0.09)' : 'rgba(5, 150, 105, 0.08)';
+
+      const data = APP_STATE.weeklyChartData;
+      const maxVal = 300;
+      const baselineY = 242;
+      const topY = 32;
+      const plotHeight = baselineY - topY;
+      const scaleY = (v) => baselineY - (Math.min(v, maxVal) / maxVal) * plotHeight;
+
+      const yTicks = [0, 75, 150, 225, 300];
+      let gridSvg = '';
+      yTicks.forEach(tick => {
+        const y = scaleY(tick);
+        gridSvg += `
+          <line x1="56" y1="${y}" x2="732" y2="${y}" stroke="${gridColor}" stroke-width="1" ${tick === 0 ? '' : 'stroke-dasharray="4 4"'} />
+          <text x="46" y="${y + 4}" text-anchor="end" fill="${labelColor}" font-family="Inter, sans-serif" font-size="11" font-weight="600">${tick}</text>
+        `;
+      });
+
+      const startX = 678;
+      const stepX = 95.3;
+      const points = data.map((d, i) => {
+        const cx = startX - i * stepX;
+        return {
+          ...d,
+          index: i,
+          cx,
+          yTotal: scaleY(d.total),
+          yBot: scaleY(d.bot),
+          yEsc: scaleY(d.escalated)
+        };
+      });
+
+      let seriesSvg = '';
+
+      if (APP_STATE.adminChartMode === 'bars') {
+        points.forEach(pt => {
+          const isSelected = pt.index === APP_STATE.selectedChartDayIndex;
+          const botH = baselineY - pt.yBot;
+          const escH = baselineY - pt.yEsc;
+          seriesSvg += `
+            ${isSelected ? `<rect x="${pt.cx - 38}" y="${topY - 6}" width="76" height="${plotHeight + 12}" rx="12" fill="${highlightBg}" />` : ''}
+            <rect x="${pt.cx + 2}" y="${pt.yBot}" width="24" height="${botH}" rx="6" fill="${botColor}" />
+            <rect x="${pt.cx - 24}" y="${pt.yEsc}" width="20" height="${escH}" rx="5" fill="${escColor}" />
+            <text x="${pt.cx}" y="${pt.yBot - 8}" text-anchor="middle" fill="${textMain}" font-family="Inter, sans-serif" font-size="11.5" font-weight="800">${pt.total}</text>
+          `;
+        });
+      } else {
+        const totalPoly = points.map(p => `${p.cx},${p.yTotal}`).join(' ');
+        const botPoly = points.map(p => `${p.cx},${p.yBot}`).join(' ');
+        const areaPath = `M ${points[0].cx},${baselineY} ` +
+          points.map(p => `L ${p.cx},${p.yTotal}`).join(' ') +
+          ` L ${points[points.length - 1].cx},${baselineY} Z`;
+
+        seriesSvg += `
+          <defs>
+            <linearGradient id="dalilyAreaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="${botColor}" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="${botColor}" stop-opacity="0.02"/>
+            </linearGradient>
+          </defs>
+          <path d="${areaPath}" fill="url(#dalilyAreaGrad)" />
+          <polyline fill="none" stroke="${botColor}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" points="${totalPoly}" />
+          <polyline fill="none" stroke="${escColor}" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round" points="${botPoly}" />
+        `;
+
+        points.forEach(pt => {
+          const isSelected = pt.index === APP_STATE.selectedChartDayIndex;
+          seriesSvg += `
+            ${isSelected ? `<line x1="${pt.cx}" y1="${topY}" x2="${pt.cx}" y2="${baselineY}" stroke="${botColor}" stroke-width="1.2" stroke-dasharray="3 3" />` : ''}
+            <circle cx="${pt.cx}" cy="${pt.yTotal}" r="${isSelected ? 6.5 : 4.5}" fill="${botColor}" stroke="${isDark ? '#121A14' : '#FFFFFF'}" stroke-width="2" />
+            <text x="${pt.cx}" y="${pt.yTotal - 11}" text-anchor="middle" fill="${textMain}" font-family="Inter, sans-serif" font-size="11.5" font-weight="800">${pt.total}</text>
+          `;
+        });
+      }
+
+      let xAxisAndHitsSvg = '';
+      points.forEach(pt => {
+        const isSelected = pt.index === APP_STATE.selectedChartDayIndex;
+        xAxisAndHitsSvg += `
+          <text x="${pt.cx}" y="268" text-anchor="middle" fill="${isSelected ? botColor : labelColor}" font-family="Cairo, sans-serif" font-size="12" font-weight="${isSelected ? '800' : '600'}">${pt.day}</text>
+          <rect x="${pt.cx - 44}" y="20" width="88" height="260" fill="transparent" class="cursor-pointer"
+            onmouseenter="selectAdminChartDay(${pt.index})"
+            onclick="selectAdminChartDay(${pt.index})" />
+        `;
+      });
+
+      svg.innerHTML = gridSvg + seriesSvg + xAxisAndHitsSvg;
+    }
+
+    function switchAdminView(viewName) {
+      document.querySelectorAll('.admin-view').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`aview-${viewName}`).classList.remove('hidden');
+
+      document.querySelectorAll('.admin-nav-btn').forEach(btn => {
+        const active = btn.dataset.aview === viewName;
+        btn.className = active
+          ? 'admin-nav-btn w-full flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-xs font-extrabold bg-[#059669] dark:bg-[#82E0A6] text-white dark:text-[#0E1711]'
+          : 'admin-nav-btn w-full flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-xs font-bold text-[#57534E] dark:text-[#9CAFA2] hover:bg-[#F3EFEA] dark:hover:bg-[#26362B]';
+      });
+
+      if (viewName === 'settings') {
+        document.getElementById('setting-welcome-msg').value = APP_STATE.settings.welcomeMessage;
+      }
+      renderAdminDashboard();
+    }
+
+    function renderAdminDashboard() {
+      renderAdminVolumeChart();
+
+      // Agents List
+      const agentsList = document.getElementById('admin-agents-list');
+      agentsList.innerHTML = APP_STATE.agents.map(ag => `
+        <div class="bg-white dark:bg-[#1E2B22] p-4 rounded-2xl border border-[#E5E0D8] dark:border-[#2F4235] flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div>
+            <p class="font-extrabold text-sm">${ag.name}</p>
+            <p class="text-[#57534E] dark:text-[#9CAFA2]">${ag.role} • تذاكر منجزة: <strong>${ag.ticketsCount}</strong> • التقييم: <strong class="text-[#D97706] dark:text-[#F2A93B]">${ag.csat}</strong></p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-full font-bold ${ag.active ? 'bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6]' : 'bg-rose-500/15 text-rose-500'}">
+              ${ag.active ? 'نشط' : 'موقوف'}
+            </span>
+            <button onclick="openAgentModal(${ag.id})" class="px-3 py-1.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] font-bold">تعديل</button>
+            <button onclick="toggleAgentStatus(${ag.id})" class="px-3 py-1.5 rounded-xl bg-[#F3EFEA] dark:bg-[#26362B] font-bold">
+              ${ag.active ? 'إيقاف' : 'تفعيل'}
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // Knowledge Base List
+      const kbList = document.getElementById('admin-kb-list');
+      kbList.innerHTML = APP_STATE.knowledgeBase.map(kb => `
+        <div class="bg-white dark:bg-[#1E2B22] p-4 rounded-2xl border border-[#E5E0D8] dark:border-[#2F4235] flex items-start justify-between gap-4 text-xs">
+          <div class="space-y-1">
+            <span class="px-2 py-0.5 rounded bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] text-[10px] font-extrabold">${kb.category}</span>
+            <h4 class="font-extrabold text-sm pt-0.5">${kb.title}</h4>
+            <p class="text-[#57534E] dark:text-[#9CAFA2] leading-relaxed">${kb.answer}</p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="openKbModal(${kb.id})" class="px-2.5 py-1 rounded-lg bg-[#F3EFEA] dark:bg-[#26362B] font-bold">تعديل</button>
+            <button onclick="deleteAdminKb(${kb.id})" class="text-rose-500 font-bold hover:underline">حذف</button>
+          </div>
+        </div>
+      `).join('');
+
+      // All Tickets List
+      const searchVal = (document.getElementById('admin-ticket-search')?.value || '').trim().toLowerCase();
+      const statusFilter = document.getElementById('admin-ticket-status-filter')?.value || 'all';
+      let filteredTickets = APP_STATE.tickets;
+      if (statusFilter !== 'all') filteredTickets = filteredTickets.filter(t => t.status === statusFilter);
+      if (searchVal) {
+        filteredTickets = filteredTickets.filter(t =>
+          t.id.toLowerCase().includes(searchVal) ||
+          t.subject.toLowerCase().includes(searchVal) ||
+          t.customer.toLowerCase().includes(searchVal)
+        );
+      }
+
+      const allTicketsList = document.getElementById('admin-all-tickets-list');
+      allTicketsList.innerHTML = filteredTickets.map(t => `
+        <div class="bg-white dark:bg-[#1E2B22] p-4 rounded-2xl border border-[#E5E0D8] dark:border-[#2F4235] flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-en font-extrabold">${t.id}</span>
+              <span class="font-bold">${t.subject}</span>
+            </div>
+            <p class="text-[11px] text-[#57534E] dark:text-[#9CAFA2] mt-0.5">العميل: ${t.customer} • الموظف: ${t.assignedAgent} • ${t.sentiment}</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 rounded-full font-extrabold bg-[#F3EFEA] dark:bg-[#26362B]">${t.status}</span>
+            <button onclick="inspectAdminTicket('${t.id}')" class="px-3 py-1.5 rounded-xl bg-[#059669]/15 dark:bg-[#82E0A6]/15 text-[#059669] dark:text-[#82E0A6] font-extrabold">تفاصيل</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openAgentModal(id = null) {
+      const modal = document.getElementById('admin-agent-modal');
+      if (id) {
+        const ag = APP_STATE.agents.find(a => a.id === id);
+        document.getElementById('agent-modal-title').textContent = 'تعديل بيانات الموظف';
+        document.getElementById('modal-agent-id').value = ag.id;
+        document.getElementById('modal-agent-name').value = ag.name;
+        document.getElementById('modal-agent-role').value = ag.role;
+      } else {
+        document.getElementById('agent-modal-title').textContent = 'إضافة موظف دعم جديد';
+        document.getElementById('modal-agent-id').value = '';
+        document.getElementById('modal-agent-name').value = '';
+        document.getElementById('modal-agent-role').value = '';
+      }
+      modal.classList.remove('hidden');
+    }
+
+    function closeAgentModal() {
+      document.getElementById('admin-agent-modal').classList.add('hidden');
+    }
+
+    function saveAgentModal() {
+      const idVal = document.getElementById('modal-agent-id').value;
+      const name = document.getElementById('modal-agent-name').value.trim();
+      const role = document.getElementById('modal-agent-role').value.trim() || 'أخصائي خدمة عملاء';
+      if (!name) return;
+
+      if (idVal) {
+        const ag = APP_STATE.agents.find(a => a.id === Number(idVal));
+        if (ag) {
+          ag.name = name;
+          ag.role = role;
+        }
+      } else {
+        APP_STATE.agents.push({ id: Date.now(), name, role, active: true, ticketsCount: 0, csat: '5.0 ★' });
+      }
+      saveState();
+      closeAgentModal();
+      renderAdminDashboard();
+      showToast('تم حفظ بيانات الموظف بنجاح ✓');
+    }
+
+    function toggleAgentStatus(id) {
+      const ag = APP_STATE.agents.find(a => a.id === id);
+      if (ag) {
+        ag.active = !ag.active;
+        saveState();
+        renderAdminDashboard();
+        showToast(`تم تحديث حالة الموظف ${ag.name}`);
+      }
+    }
+
+    function openKbModal(id = null) {
+      const modal = document.getElementById('admin-kb-modal');
+      if (id) {
+        const kb = APP_STATE.knowledgeBase.find(k => k.id === id);
+        document.getElementById('kb-modal-title').textContent = 'تعديل معلومة في قاعدة المعرفة';
+        document.getElementById('modal-kb-id').value = kb.id;
+        document.getElementById('modal-kb-cat').value = kb.category;
+        document.getElementById('modal-kb-title').value = kb.title;
+        document.getElementById('modal-kb-answer').value = kb.answer;
+      } else {
+        document.getElementById('kb-modal-title').textContent = 'إضافة معلومة لقاعدة المعرفة';
+        document.getElementById('modal-kb-id').value = '';
+        document.getElementById('modal-kb-title').value = '';
+        document.getElementById('modal-kb-answer').value = '';
+      }
+      modal.classList.remove('hidden');
+    }
+
+    function closeKbModal() {
+      document.getElementById('admin-kb-modal').classList.add('hidden');
+    }
+
+    function saveKbModal() {
+      const idVal = document.getElementById('modal-kb-id').value;
+      const category = document.getElementById('modal-kb-cat').value;
+      const title = document.getElementById('modal-kb-title').value.trim();
+      const answer = document.getElementById('modal-kb-answer').value.trim();
+      if (!title || !answer) return;
+
+      if (idVal) {
+        const kb = APP_STATE.knowledgeBase.find(k => k.id === Number(idVal));
+        if (kb) {
+          kb.category = category;
+          kb.title = title;
+          kb.answer = answer;
+          kb.keywords = title.split(' ');
+        }
+      } else {
+        APP_STATE.knowledgeBase.unshift({
+          id: Date.now(),
+          category,
+          keywords: title.split(' '),
+          title,
+          answer
+        });
+      }
+      saveState();
+      closeKbModal();
+      renderChatContextKb();
+      renderAdminDashboard();
+      showToast('تم تحديث قاعدة المعرفة وسيستخدمها مساعد دليلي فوراً ✓');
+    }
+
+    function deleteAdminKb(id) {
+      APP_STATE.knowledgeBase = APP_STATE.knowledgeBase.filter(k => k.id !== id);
+      saveState();
+      renderChatContextKb();
+      renderAdminDashboard();
+      showToast('تم حذف العنصر من قاعدة المعرفة');
+    }
+
+    function inspectAdminTicket(id) {
+      const t = APP_STATE.tickets.find(item => item.id === id);
+      if (!t) return;
+      document.getElementById('atm-title').textContent = `تفاصيل التذكرة ${t.id}`;
+      document.getElementById('atm-body').innerHTML = `
+        <p><strong>الموضوع:</strong> ${t.subject}</p>
+        <p><strong>العميل:</strong> ${t.customer} • <strong>الطلب:</strong> ${t.orderId}</p>
+        <p><strong>الموظف المسؤول:</strong> ${t.assignedAgent} • <strong>الحالة:</strong> ${t.status}</p>
+        <div class="p-3 rounded-2xl bg-[#F3EFEA] dark:bg-[#26362B] space-y-1">
+          <p class="font-bold">سياق المحادثة:</p>
+          ${t.botContext.map(c => `<p>• ${c}</p>`).join('')}
+        </div>
+      `;
+      document.getElementById('admin-ticket-modal').classList.remove('hidden');
+    }
+
+    function saveAdminSystemSettings() {
+      const msg = document.getElementById('setting-welcome-msg').value.trim();
+      if (msg) APP_STATE.settings.welcomeMessage = msg;
+      APP_STATE.settings.confidence = Number(document.getElementById('setting-confidence').value);
+      APP_STATE.settings.autoCloseHours = Number(document.getElementById('setting-autoclose-hours').value);
+      APP_STATE.settings.autoEscalateAngry = document.getElementById('setting-auto-angry').checked;
+      saveState();
+      initCustomerChatWelcome();
+      showToast('تم حفظ وتطبيق إعدادات النظام بنجاح ✓');
+    }
+  </script>
+</body>
+</html>
